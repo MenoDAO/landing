@@ -14,12 +14,16 @@ import {
   Coins,
   Star,
   X,
+  UserPlus,
+  Smartphone,
+  Heart,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isHowItWorksOpen, setIsHowItWorksOpen] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -36,7 +40,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (isModalOpen) {
+    if (isModalOpen || isHowItWorksOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -44,12 +48,27 @@ export default function Home() {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, isHowItWorksOpen]);
+
+  useEffect(() => {
+    if (isHowItWorksOpen) {
+      // Scroll to top of modal when it opens
+      const timer = setTimeout(() => {
+        const modalContainer = document.querySelector(
+          "[data-how-it-works-modal]"
+        );
+        if (modalContainer) {
+          modalContainer.scrollTop = 0;
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isHowItWorksOpen]);
 
   const packages = [
     "Gold Membership - KES 700/mo (Recommended)",
-    "Silver Membership - KES 500/mo",
-    "Bronze Membership - KES 300/mo",
+    "Silver Membership - KES 550/mo",
+    "Bronze Membership - KES 350/mo",
   ];
 
   const packageBenefits = {
@@ -59,12 +78,12 @@ export default function Home() {
       "Full Cleaning & Polishing",
       "Emergency Filling Coverage",
     ],
-    "Silver Membership - KES 500/mo": [
+    "Silver Membership - KES 550/mo": [
       "2 Checkups per Year",
       "Basic Cleaning",
       "Pain Relief Consultation",
     ],
-    "Bronze Membership - KES 300/mo": [
+    "Bronze Membership - KES 350/mo": [
       "1 Checkup per Year",
       "Basic Consultation",
     ],
@@ -176,7 +195,10 @@ Thank you!`;
               >
                 Join Founding Members
               </button>
-              <button className="w-full sm:w-auto px-8 py-4 border-2 border-[#3B82F6] text-[#3B82F6] hover:bg-blue-50 hover:bg-opacity-10 font-semibold rounded-lg transition-colors duration-200">
+              <button
+                onClick={() => setIsHowItWorksOpen(true)}
+                className="w-full sm:w-auto px-8 py-4 border-2 border-[#3B82F6] text-[#3B82F6] hover:bg-blue-50 hover:bg-opacity-10 font-semibold rounded-lg transition-colors duration-200"
+              >
                 How It Works
               </button>
             </div>
@@ -584,6 +606,140 @@ Thank you!`;
                   are required today.
                 </p>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* How It Works Modal */}
+      {isHowItWorksOpen && (
+        <div
+          data-how-it-works-modal
+          className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-black bg-opacity-50 overflow-y-auto"
+          onClick={() => setIsHowItWorksOpen(false)}
+        >
+          <div
+            className="bg-slate-50 w-full max-w-5xl mt-8 md:mt-12 mb-8 md:mb-12 rounded-lg shadow-2xl relative overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Background Decor (Subtle Swirls) */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+              <div className="absolute top-10 right-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+              <div className="absolute bottom-10 left-0 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            </div>
+
+            <div className="relative z-10 p-8 md:p-12 pt-12 md:pt-16">
+              {/* Close Button */}
+              <button
+                onClick={() => setIsHowItWorksOpen(false)}
+                className="absolute top-8 right-8 md:top-12 md:right-12 text-gray-400 hover:text-gray-600 transition-colors z-20"
+              >
+                <X className="h-6 w-6" />
+              </button>
+
+              {/* Header */}
+              <div className="text-center mb-12 md:mb-16">
+                <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm inline-block">
+                  Simple Process
+                </span>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-4 leading-tight font-outfit">
+                  Your Journey to <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">
+                    Care-Free Health
+                  </span>
+                </h2>
+                <p className="text-slate-500 mt-6 text-lg max-w-2xl mx-auto">
+                  We removed the paperwork, the waiting lines, and the stress.
+                  Here is how you join the family.
+                </p>
+              </div>
+
+              {/* Steps */}
+              <div className="relative">
+                {/* Vertical Line */}
+                <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-slate-200 rounded-full -translate-x-1/2 md:translate-x-0"></div>
+
+                {/* Step 1 */}
+                <div className="relative z-10 mb-12 md:mb-24">
+                  <div className="flex flex-col md:flex-row items-center">
+                    <div className="flex-1 w-full md:w-1/2 md:pr-12 md:text-right pl-20 md:pl-0">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
+                        1. Become a Member
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed">
+                        Select a package below and click "Submit." No long forms
+                        to fill out. It happens instantly on{" "}
+                        <strong>WhatsApp</strong>.
+                      </p>
+                    </div>
+
+                    {/* Icon Circle */}
+                    <div className="absolute left-0 md:left-1/2 w-16 h-16 bg-white border-4 border-blue-500 rounded-full flex items-center justify-center -translate-x-0 md:-translate-x-1/2 shadow-xl shadow-blue-500/20 z-20">
+                      <UserPlus className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <div className="flex-1 w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="relative z-10 mb-12 md:mb-24">
+                  <div className="flex flex-col md:flex-row-reverse items-center">
+                    <div className="flex-1 w-full md:w-1/2 md:pl-12 md:text-left pl-20 md:pl-0">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
+                        2. Secure Contribution
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed">
+                        Activate your account by sending your small monthly
+                        contribution (e.g., KES 300) via{" "}
+                        <strong>M-Pesa Buy Goods</strong>. Safe and tracked.
+                      </p>
+                    </div>
+
+                    {/* Icon Circle */}
+                    <div className="absolute left-0 md:left-1/2 w-16 h-16 bg-white border-4 border-green-500 rounded-full flex items-center justify-center -translate-x-0 md:-translate-x-1/2 shadow-xl shadow-green-500/20 z-20">
+                      <Smartphone className="h-6 w-6 text-green-600" />
+                    </div>
+                    <div className="flex-1 w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="relative z-10">
+                  <div className="flex flex-col md:flex-row items-center">
+                    <div className="flex-1 w-full md:w-1/2 md:pr-12 md:text-right pl-20 md:pl-0">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
+                        3. Walk-In Care
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed">
+                        Visit our partner clinic. Show your digital card. Get
+                        treated immediately. <br />
+                        <span className="text-green-600 font-bold bg-green-50 px-2 py-1 rounded-md mt-2 inline-block">
+                          Leave your wallet at home.
+                        </span>
+                      </p>
+                    </div>
+
+                    {/* Icon Circle */}
+                    <div className="absolute left-0 md:left-1/2 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 border-4 border-white rounded-full flex items-center justify-center -translate-x-0 md:-translate-x-1/2 shadow-xl shadow-blue-900/30 z-20">
+                      <Heart className="h-7 w-7 text-white animate-pulse" />
+                    </div>
+                    <div className="flex-1 w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Get Started Button */}
+              <div className="text-center mt-12 md:mt-16">
+                <button
+                  onClick={() => {
+                    setIsHowItWorksOpen(false);
+                    setIsModalOpen(true);
+                  }}
+                  className="px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
+                >
+                  Get Started
+                </button>
+              </div>
             </div>
           </div>
         </div>
