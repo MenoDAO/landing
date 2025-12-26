@@ -17,13 +17,61 @@ import {
   UserPlus,
   Smartphone,
   Heart,
+  Briefcase,
+  Image as ImageIcon,
+  Mail,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+
+// Gallery Image Component with Next.js Image optimization
+function GalleryImage({ index }: { index: number }) {
+  const [hasError, setHasError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imageNumber = index + 1;
+
+  if (hasError) {
+    // Don't render placeholder if image fails - keeps grid clean
+    return null;
+  }
+
+  return (
+    <div className="aspect-square bg-gradient-to-br from-blue-100 to-green-100 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer group relative">
+      {!imageLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-green-50">
+          <div
+            className="w-full h-full animate-pulse bg-gradient-to-r from-transparent via-white/40 to-transparent"
+            style={{ animation: "shimmer 1.5s infinite" }}
+          />
+        </div>
+      )}
+      <Image
+        src={`/gallery/image-${imageNumber}.jpg`}
+        alt={`Gallery image ${imageNumber}`}
+        fill
+        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+        className={`object-cover transition-opacity duration-500 ${
+          imageLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        onError={() => setHasError(true)}
+        onLoad={() => setImageLoaded(true)}
+        loading="lazy"
+        quality={90}
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDAAQRBRIhBhMiMUFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQADAQEBAAAAAAAAAAAAAAABAgMAETH/2gAMAwEAAhEDEQA/ANB6f6ouNS1O2huLWGONySoRiTwODz+1J3frC8tbueCO0t2WKRkBZjk4JGT7+0pTqpEwMjmT1LP/2Q=="
+      />
+    </div>
+  );
+}
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHowItWorksOpen, setIsHowItWorksOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -64,6 +112,125 @@ export default function Home() {
       return () => clearTimeout(timer);
     }
   }, [isHowItWorksOpen]);
+
+  // Dynamically generate carousel slides from available images (up to 12)
+  const carouselSlides: Array<{
+    image: string;
+    bgGradient: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    cta: string;
+    ctaAction: () => void;
+  }> = Array.from({ length: 11 }, (_, index) => {
+    const slideNumber = index + 1;
+    const gradients = [
+      "from-blue-900 via-green-900 to-blue-800",
+      "from-green-800 via-blue-800 to-purple-900",
+      "from-purple-900 via-blue-900 to-teal-900",
+      "from-blue-800 via-indigo-900 to-purple-900",
+      "from-teal-900 via-green-800 to-blue-900",
+      "from-indigo-900 via-purple-900 to-pink-900",
+      "from-green-900 via-teal-900 to-cyan-900",
+      "from-blue-900 via-indigo-900 to-purple-900",
+      "from-purple-900 via-pink-900 to-red-900",
+      "from-cyan-900 via-blue-900 to-indigo-900",
+      "from-green-900 via-emerald-900 to-teal-900",
+    ];
+
+    // Default content for first 3 slides, generic for others
+    if (slideNumber === 1) {
+      return {
+        image: `/carousel/slide-${slideNumber}.jpg`,
+        bgGradient: gradients[0],
+        title: "Quality Dental Care.",
+        subtitle: "Powered by Community.",
+        description:
+          "Join the first Community Health Membership that protects your smile and your pocket.",
+        cta: "Join Founding Members",
+        ctaAction: () => setIsModalOpen(true),
+      };
+    } else if (slideNumber === 2) {
+      return {
+        image: `/carousel/slide-${slideNumber}.jpg`,
+        bgGradient: gradients[1],
+        title: "Affordable Health for Everyone",
+        subtitle: "No Surprise Bills. Just Fair Care.",
+        description:
+          "From KES 350/month, access quality dental care without the financial stress.",
+        cta: "View Plans",
+        ctaAction: () => scrollToSection("services"),
+      };
+    } else if (slideNumber === 3) {
+      return {
+        image: `/carousel/slide-${slideNumber}.jpg`,
+        bgGradient: gradients[2],
+        title: "Community-Led, Member-Owned",
+        subtitle: "Transparent. Secure. Trusted.",
+        description:
+          "Every shilling is accounted for. Your health data stays private. You're in control.",
+        cta: "Learn More",
+        ctaAction: () => scrollToSection("about"),
+      };
+    } else {
+      // Generic content for additional slides
+      return {
+        image: `/carousel/slide-${slideNumber}.jpg`,
+        bgGradient: gradients[(slideNumber - 1) % gradients.length],
+        title: "MenoDAO",
+        subtitle: "Community Dental Care",
+        description: "Building healthier communities, one smile at a time.",
+        cta: "Join Us",
+        ctaAction: () => setIsModalOpen(true),
+      };
+    }
+  });
+
+  // Auto-play carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    }, 5000); // Change slide every 5 seconds
+    return () => clearInterval(interval);
+  }, [carouselSlides.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length
+    );
+  };
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+  };
 
   const packages = [
     "Gold Membership - KES 700/mo (Recommended)",
@@ -134,79 +301,313 @@ Thank you!`;
     });
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation Bar */}
+      {/* Navigation Bar - Transparent with backdrop blur */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
-          scrolled ? "shadow-md" : ""
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             <div className="flex items-center">
-              <img
-                src="/logo.png"
-                alt="MenoDAO Logo"
-                className="h-10 w-10 md:h-12 md:w-12"
-                onError={(e) => {
-                  e.currentTarget.src = "/logo.svg";
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-              />
+                className="flex items-center"
+              >
+                <img
+                  src="/logo.png"
+                  alt="MenoDAO Logo"
+                  className={`h-10 w-10 md:h-12 md:w-12 transition-all duration-300 ${
+                    !scrolled ? "drop-shadow-lg" : ""
+                  }`}
+                  style={
+                    !scrolled
+                      ? {
+                          filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.8))",
+                        }
+                      : {}
+                  }
+                  onError={(e) => {
+                    e.currentTarget.src = "/logo.svg";
+                  }}
+                />
+              </a>
             </div>
-            <div className="md:hidden">
-              <Menu className="h-6 w-6 text-gray-700" />
-            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("about");
+                }}
+                className={`transition-colors duration-200 font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-white drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)] hover:text-blue-200"
+                }`}
+              >
+                About
+              </a>
+              <a
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("services");
+                }}
+                className={`transition-colors duration-200 font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-white drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)] hover:text-blue-200"
+                }`}
+              >
+                Services
+              </a>
+              <a
+                href="#gallery"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("gallery");
+                }}
+                className={`transition-colors duration-200 font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-white drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)] hover:text-blue-200"
+                }`}
+              >
+                Gallery
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("contact");
+                }}
+                className={`transition-colors duration-200 font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-white drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)] hover:text-blue-200"
+                }`}
+              >
+                Contact
+              </a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`md:hidden transition-colors ${
+                scrolled ? "text-gray-700" : "text-white drop-shadow-lg"
+              }`}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div
+              className={`md:hidden py-4 animate-slideDown ${
+                scrolled
+                  ? "border-t border-gray-200 bg-white"
+                  : "border-t border-white/20 bg-black/30 backdrop-blur-md"
+              }`}
+            >
+              <nav className="flex flex-col space-y-4">
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("about");
+                  }}
+                  className={`transition-colors duration-200 font-medium py-2 ${
+                    scrolled
+                      ? "text-gray-700 hover:text-blue-600"
+                      : "text-white hover:text-blue-200"
+                  }`}
+                >
+                  About
+                </a>
+                <a
+                  href="#services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("services");
+                  }}
+                  className={`transition-colors duration-200 font-medium py-2 ${
+                    scrolled
+                      ? "text-gray-700 hover:text-blue-600"
+                      : "text-white hover:text-blue-200"
+                  }`}
+                >
+                  Services
+                </a>
+                <a
+                  href="#gallery"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("gallery");
+                  }}
+                  className={`transition-colors duration-200 font-medium py-2 ${
+                    scrolled
+                      ? "text-gray-700 hover:text-blue-600"
+                      : "text-white hover:text-blue-200"
+                  }`}
+                >
+                  Gallery
+                </a>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("contact");
+                  }}
+                  className={`transition-colors duration-200 font-medium py-2 ${
+                    scrolled
+                      ? "text-gray-700 hover:text-blue-600"
+                      : "text-white hover:text-blue-200"
+                  }`}
+                >
+                  Contact
+                </a>
+              </nav>
+            </div>
+          )}
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="bg-[#0F172A] text-white pt-32 pb-20 md:pt-40 md:pb-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-6 md:space-y-8">
-            {/* Pre-Header */}
-            <p className="text-sm md:text-base text-gray-400 uppercase tracking-wider">
-              COMING SOON TO MOMBASA & KWALE
-            </p>
-
-            {/* Headline */}
-            <div className="space-y-2 md:space-y-4">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit">
-                Quality Dental Care.
-              </h1>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-blue-400 via-blue-300 to-white bg-clip-text text-transparent font-outfit">
-                Powered by Community.
-              </h1>
-            </div>
-
-            {/* Subtext */}
-            <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Join the first Community Health Membership that protects your
-              smile and your pocket. No surprise bills. Just fair, affordable
-              care for everyone.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="w-full sm:w-auto px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg"
+      {/* Hero Carousel Section - Fullscreen */}
+      <section id="home" className="relative h-screen overflow-hidden">
+        {/* Carousel Container */}
+        <div
+          className="relative w-full h-full"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {carouselSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
+              {/* Background Image with Fallback Gradient */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${slide.bgGradient}`}
               >
-                Join Founding Members
-              </button>
-              <button
-                onClick={() => setIsHowItWorksOpen(true)}
-                className="w-full sm:w-auto px-8 py-4 border-2 border-[#3B82F6] text-[#3B82F6] hover:bg-blue-50 hover:bg-opacity-10 font-semibold rounded-lg transition-colors duration-200"
-              >
-                How It Works
-              </button>
-            </div>
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  priority={index < 3} // Preload first 3 slides for smooth transitions
+                  quality={90}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDAAQRBRIhBhMiMUFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQADAQEBAAAAAAAAAAAAAAABAgMAETH/2gAMAwEAAhEDEQA/ANB6f6ouNS1O2huLWGONySoRiTwODz+1J3frC8tbueCO0t2WKRkBZjk4JGT7+0pTqpEwMjmT1LP/2Q=="
+                  onError={(e) => {
+                    // Hide image if it fails to load, gradient background will show
+                    (e.target as HTMLImageElement).style.opacity = "0";
+                  }}
+                />
+                {/* Dark Overlay for Text Legibility */}
+                <div className="absolute inset-0 bg-black/50 md:bg-black/40"></div>
+                {/* Gradient Overlay for Better Text Contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+              </div>
 
-            {/* Secure Footer Text */}
-            <p className="text-sm md:text-base text-gray-400 pt-4">
-              🔒 Secure. Transparent. Community Owned.
-            </p>
+              {/* Content Overlay */}
+              <div className="relative z-20 h-full flex items-center justify-center">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                  <div className="text-center space-y-6 md:space-y-8">
+                    {/* Pre-Header */}
+                    <p className="text-sm md:text-base text-gray-200 uppercase tracking-wider font-semibold drop-shadow-lg">
+                      COMING SOON TO MOMBASA & KWALE
+                    </p>
+
+                    {/* Headline with Text Shadow for Legibility */}
+                    <div className="space-y-2 md:space-y-4">
+                      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
+                        {slide.title}
+                      </h1>
+                      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
+                        {slide.subtitle}
+                      </h1>
+                    </div>
+
+                    {/* Subtext with Background for Better Readability */}
+                    <p className="text-base md:text-lg lg:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed drop-shadow-lg bg-black/30 backdrop-blur-sm px-6 py-4 rounded-lg inline-block [text-shadow:_1px_1px_4px_rgb(0_0_0_/_90%)]">
+                      {slide.description}
+                    </p>
+
+                    {/* CTAs */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                      <button
+                        onClick={slide.ctaAction}
+                        className="w-full sm:w-auto px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105"
+                      >
+                        {slide.cta}
+                      </button>
+                      <button
+                        onClick={() => setIsHowItWorksOpen(true)}
+                        className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/50 text-white hover:bg-white/20 font-semibold rounded-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105"
+                      >
+                        How It Works
+                      </button>
+                    </div>
+
+                    {/* Secure Footer Text */}
+                    <p className="text-sm md:text-base text-gray-200 pt-4 drop-shadow-lg [text-shadow:_1px_1px_4px_rgb(0_0_0_/_80%)]">
+                      🔒 Secure. Transparent. Community Owned.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+            {carouselSlides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`transition-all duration-300 rounded-full ${
+                  index === currentSlide
+                    ? "w-12 h-3 bg-white shadow-lg"
+                    : "w-3 h-3 bg-white/50 hover:bg-white/75"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -365,6 +766,291 @@ Thank you!`;
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm inline-block mb-4">
+              About Us
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-outfit mt-4">
+              Building Healthier Communities, One Smile at a Time
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <p className="text-lg text-gray-600 leading-relaxed">
+                MenoDAO is a community-led dental cooperative that transforms
+                how people access and pay for dental care in Kenya. We believe
+                everyone deserves quality dental health without the financial
+                burden.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Founded on principles of transparency, affordability, and
+                community ownership, we pool resources to make preventive and
+                essential dental care accessible to all members.
+              </p>
+              <div className="flex flex-wrap gap-4 mt-8">
+                <div className="bg-blue-50 rounded-lg p-4 flex-1 min-w-[150px]">
+                  <div className="text-3xl font-bold text-blue-600">2025</div>
+                  <div className="text-sm text-gray-600">Founded</div>
+                </div>
+                <div className="bg-green-50 rounded-lg p-4 flex-1 min-w-[150px]">
+                  <div className="text-3xl font-bold text-green-600">100%</div>
+                  <div className="text-sm text-gray-600">Community Owned</div>
+                </div>
+                <div className="bg-orange-50 rounded-lg p-4 flex-1 min-w-[150px]">
+                  <div className="text-3xl font-bold text-orange-600">
+                    KES 300+
+                  </div>
+                  <div className="text-sm text-gray-600">Monthly Start</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden min-h-[400px] shadow-xl">
+              <Image
+                src="/gallery/image-1.jpg"
+                alt="MenoDAO Community"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
+                quality={90}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDAAQRBRIhBhMiMUFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQADAQEBAAAAAAAAAAAAAAABAgMAETH/2gAMAwEAAhEDEQA/ANB6f6ouNS1O2huLWGONySoRiTwODz+1J3frC8tbueCO0t2WKRkBZjk4JGT7+0pTqpEwMjmT1LP/2Q=="
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 md:py-32 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm inline-block mb-4">
+              Our Services
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-outfit mt-4">
+              Comprehensive Dental Care Packages
+            </h2>
+            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+              Choose the plan that fits your needs. All packages include
+              transparent pricing and community support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Bronze Package */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="text-center mb-6">
+                <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Coins className="h-8 w-8 text-amber-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 font-outfit mb-2">
+                  Bronze
+                </h3>
+                <div className="text-4xl font-bold text-gray-900 mb-2">
+                  KES 350
+                  <span className="text-lg text-gray-500 font-normal">/mo</span>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">1 Checkup per Year</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Basic Consultation</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Community Access</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Silver Package */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-blue-200">
+              <div className="text-center mb-6">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Coins className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 font-outfit mb-2">
+                  Silver
+                </h3>
+                <div className="text-4xl font-bold text-gray-900 mb-2">
+                  KES 550
+                  <span className="text-lg text-gray-500 font-normal">/mo</span>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">2 Checkups per Year</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Basic Cleaning</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">
+                    Pain Relief Consultation
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Priority Support</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Gold Package */}
+            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-orange-300">
+              <div className="text-center mb-6">
+                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="h-8 w-8 text-orange-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 font-outfit mb-2">
+                  Gold
+                </h3>
+                <div className="text-sm font-semibold text-orange-600 mb-2">
+                  RECOMMENDED
+                </div>
+                <div className="text-4xl font-bold text-gray-900 mb-2">
+                  KES 700
+                  <span className="text-lg text-gray-500 font-normal">/mo</span>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Unlimited Checkups</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">Priority Pain Relief</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">
+                    Full Cleaning & Polishing
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">
+                    Emergency Filling Coverage
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm inline-block mb-4">
+              Gallery
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-outfit mt-4">
+              Our Community in Action
+            </h2>
+            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+              See how we're making dental care accessible to communities across
+              Mombasa and Kwale.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {/* Gallery images - Will try to load from /gallery/ directory (up to 16 images) */}
+            {Array.from({ length: 16 }).map((_, index) => (
+              <GalleryImage key={index} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 md:py-32 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm inline-block mb-4">
+              Contact Us
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-outfit mt-4">
+              Get in Touch
+            </h2>
+            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+              Have questions? Want to learn more? Reach out to us through any of
+              these channels.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/254743178950"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center group"
+            >
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
+                <MessageCircle className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 font-outfit mb-2">
+                WhatsApp
+              </h3>
+              <p className="text-gray-600 mb-4">+254 743 178 950</p>
+              <p className="text-sm text-gray-500">Quick responses</p>
+            </a>
+
+            {/* Location */}
+            <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 font-outfit mb-2">
+                Location
+              </h3>
+              <p className="text-gray-600 mb-4">Mombasa & Kwale</p>
+              <p className="text-sm text-gray-500">Coming Soon</p>
+            </div>
+
+            {/* Email */}
+            <a
+              href="mailto:info@menodao.co.ke"
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center group"
+            >
+              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
+                <Mail className="h-8 w-8 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 font-outfit mb-2">
+                Email
+              </h3>
+              <p className="text-gray-600 mb-4">info@menodao.org</p>
+              <p className="text-sm text-gray-500">General inquiries</p>
+            </a>
+          </div>
+
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
+            >
+              Join Our Community
+            </button>
           </div>
         </div>
       </section>
@@ -690,7 +1376,7 @@ Thank you!`;
                       </h3>
                       <p className="text-slate-600 leading-relaxed">
                         Activate your account by sending your small monthly
-                        contribution (e.g., KES 300) via{" "}
+                        contribution (e.g., KES 350) via{" "}
                         <strong>M-Pesa Buy Goods</strong>. Safe and tracked.
                       </p>
                     </div>
