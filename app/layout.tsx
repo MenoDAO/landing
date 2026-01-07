@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: 'MenoDAO is Kenya\'s first community-led dental care SACCO. Get affordable dental treatment, teeth cleaning, dental checkups & emergency care. Quality dental services for low-income families. Join today!',
   keywords: [
     // Brand keywords
-    'MenoDAO', 'Meno DAO', 'meno', 'dao', 'dental sacco',
+    'menodao', 'MenoDAO', 'Meno DAO', 'meno', 'dao', 'dental sacco',
     // Service keywords
     'dental care', 'dental clinic', 'dental treatment', 'teeth cleaning',
     'dental checkup', 'dental services', 'oral health', 'dental health',
@@ -57,9 +57,14 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
   themeColor: '#2563eb',
