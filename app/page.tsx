@@ -414,6 +414,14 @@ Thank you!`;
               >
                 Contact
               </a>
+              <a
+                href="https://dev.menodao.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                Get Started
+              </a>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -496,6 +504,14 @@ Thank you!`;
                   }`}
                 >
                   Contact
+                </a>
+                <a
+                  href="https://dev.menodao.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 px-5 py-3 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 text-center shadow-lg"
+                >
+                  Get Started
                 </a>
               </nav>
             </div>
@@ -1070,9 +1086,17 @@ Thank you!`;
                 }}
               />
             </div>
-            <p className="text-gray-400 text-center md:text-left">
+            <p className="text-gray-400 text-center md:text-left flex-1 mx-4">
               Community-led dental care for Kenya.
             </p>
+            <a
+              href="https://dev.menodao.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 md:mt-0 px-6 py-3 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg"
+            >
+              Launch App
+            </a>
           </div>
 
           {/* Social Icons */}
