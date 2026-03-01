@@ -66,18 +66,11 @@ function GalleryImage({ index }: { index: number }) {
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHowItWorksOpen, setIsHowItWorksOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    phoneNumber: "",
-    location: "",
-    package: "Gold Membership - KES 700/mo (Recommended)",
-  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,7 +81,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (isModalOpen || isHowItWorksOpen) {
+    if (isHowItWorksOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -96,14 +89,14 @@ export default function Home() {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isModalOpen, isHowItWorksOpen]);
+  }, [isHowItWorksOpen]);
 
   useEffect(() => {
     if (isHowItWorksOpen) {
       // Scroll to top of modal when it opens
       const timer = setTimeout(() => {
         const modalContainer = document.querySelector(
-          "[data-how-it-works-modal]"
+          "[data-how-it-works-modal]",
         );
         if (modalContainer) {
           modalContainer.scrollTop = 0;
@@ -204,7 +197,7 @@ export default function Home() {
 
   const prevSlide = () => {
     setCurrentSlide(
-      (prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length
+      (prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length,
     );
   };
 
@@ -293,7 +286,7 @@ Thank you!`;
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     setFormData({
       ...formData,
@@ -586,12 +579,14 @@ Thank you!`;
 
                     {/* CTAs */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                      <button
-                        onClick={slide.ctaAction}
-                        className="w-full sm:w-auto px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105"
+                      <a
+                        href="https://app.menodao.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 text-center"
                       >
-                        {slide.cta}
-                      </button>
+                        Join MenoDAO Now
+                      </a>
                       <button
                         onClick={() => setIsHowItWorksOpen(true)}
                         className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/50 text-white hover:bg-white/20 font-semibold rounded-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105"
@@ -1061,12 +1056,14 @@ Thank you!`;
           </div>
 
           <div className="mt-12 text-center">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
+            <a
+              href="https://app.menodao.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
             >
               Join Our Community
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -1278,8 +1275,8 @@ Thank you!`;
                         {formData.package.includes("Gold")
                           ? "Gold Benefits:"
                           : formData.package.includes("Silver")
-                          ? "Silver Benefits:"
-                          : "Bronze Benefits:"}
+                            ? "Silver Benefits:"
+                            : "Bronze Benefits:"}
                       </h3>
                     </div>
                     <ul className="space-y-2">
