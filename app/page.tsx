@@ -434,10 +434,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Carousel Section - Fullscreen */}
-      <section
-        id="home"
-        className="relative h-screen overflow-hidden md:overflow-hidden overflow-y-auto"
-      >
+      <section id="home" className="relative h-screen overflow-hidden">
         {/* Carousel Container */}
         <div
           className="relative w-full h-full"
@@ -478,9 +475,9 @@ export default function Home() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-20 min-h-full flex items-start md:items-center justify-center pt-24 pb-32 md:pt-0 md:pb-0">
+              <div className="relative z-20 h-full flex items-center justify-center py-20 md:py-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                  <div className="text-center space-y-4 md:space-y-8">
+                  <div className="text-center space-y-4 md:space-y-6">
                     {/* Pre-Header */}
                     <p className="text-sm md:text-base text-emerald-400 uppercase tracking-wider font-semibold drop-shadow-lg bg-emerald-900/40 px-4 py-2 rounded-full inline-block">
                       ✓ NOW SERVING MOMBASA & KWALE
@@ -552,7 +549,7 @@ export default function Home() {
                     </div>
 
                     {/* Trust Indicators */}
-                    <div className="flex flex-wrap items-center justify-center gap-6 pt-6 pb-16 md:pb-0 text-white/90 text-sm">
+                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 md:pt-6 text-white/90 text-xs md:text-sm">
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4" />
                         <span>500+ Active Members</span>
@@ -572,8 +569,8 @@ export default function Home() {
             </div>
           ))}
 
-          {/* Slide Indicators */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+          {/* Slide Indicators - Hidden on mobile to avoid overlap */}
+          <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-30 gap-2">
             {carouselSlides.map((_, index) => (
               <button
                 key={index}
