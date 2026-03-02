@@ -1110,12 +1110,12 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="flex-1 w-full md:w-1/2 md:pr-12 md:text-right pl-20 md:pl-0">
                       <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
-                        1. Become a Member
+                        1. Sign Up on the App
                       </h3>
                       <p className="text-slate-600 leading-relaxed">
-                        Select a package below and click "Submit." No long forms
-                        to fill out. It happens instantly on{" "}
-                        <strong>WhatsApp</strong>.
+                        Visit <strong>app.menodao.org</strong> and sign up with
+                        your phone number. Choose your preferred membership
+                        package (Bronze, Silver, or Gold).
                       </p>
                     </div>
 
@@ -1132,12 +1132,12 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row-reverse items-center">
                     <div className="flex-1 w-full md:w-1/2 md:pl-12 md:text-left pl-20 md:pl-0">
                       <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
-                        2. Secure Contribution
+                        2. Make Your Payment
                       </h3>
                       <p className="text-slate-600 leading-relaxed">
-                        Activate your account by sending your small monthly
-                        contribution (e.g., KES 350) via{" "}
-                        <strong>M-Pesa Buy Goods</strong>. Safe and tracked.
+                        Complete your registration by paying your monthly
+                        contribution via <strong>M-Pesa</strong>. Your account
+                        activates instantly once payment is confirmed.
                       </p>
                     </div>
 
@@ -1154,13 +1154,14 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="flex-1 w-full md:w-1/2 md:pr-12 md:text-right pl-20 md:pl-0">
                       <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
-                        3. Walk-In Care
+                        3. Access Quality Care
                       </h3>
                       <p className="text-slate-600 leading-relaxed">
-                        Visit our partner clinic. Show your digital card. Get
-                        treated immediately. <br />
+                        Visit any partner clinic. Show your digital membership
+                        card. Get treated according to your package benefits.{" "}
+                        <br />
                         <span className="text-green-600 font-bold bg-green-50 px-2 py-1 rounded-md mt-2 inline-block">
-                          Leave your wallet at home.
+                          No surprise bills. Just care.
                         </span>
                       </p>
                     </div>
