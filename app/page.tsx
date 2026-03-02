@@ -479,47 +479,90 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <div className="text-center space-y-6 md:space-y-8">
                     {/* Pre-Header */}
-                    <p className="text-sm md:text-base text-gray-200 uppercase tracking-wider font-semibold drop-shadow-lg">
-                      COMING SOON TO MOMBASA & KWALE
+                    <p className="text-sm md:text-base text-emerald-400 uppercase tracking-wider font-semibold drop-shadow-lg bg-emerald-900/40 px-4 py-2 rounded-full inline-block">
+                      ✓ NOW SERVING MOMBASA & KWALE
                     </p>
 
                     {/* Headline with Text Shadow for Legibility */}
                     <div className="space-y-2 md:space-y-4">
                       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                        {slide.title}
+                        Stop Paying KES 30,000
                       </h1>
-                      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                        {slide.subtitle}
+                      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-emerald-400 drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
+                        When You're in Pain
                       </h1>
                     </div>
 
-                    {/* Subtext with Background for Better Readability */}
-                    <p className="text-base md:text-lg lg:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed drop-shadow-lg bg-black/30 backdrop-blur-sm px-6 py-4 rounded-lg inline-block [text-shadow:_1px_1px_4px_rgb(0_0_0_/_90%)]">
-                      {slide.description}
-                    </p>
+                    {/* Value Proposition with Pricing */}
+                    <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 md:p-8 max-w-4xl mx-auto shadow-2xl">
+                      <p className="text-xl md:text-2xl lg:text-3xl text-gray-900 font-bold mb-4">
+                        Pay as little as KES 350/month
+                      </p>
+                      <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                        Get checkups, cleanings, and emergency care without
+                        surprise bills. Join 500+ Kenyans who chose smart dental
+                        care.
+                      </p>
+
+                      {/* Quick Benefits */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div className="flex items-center gap-2 text-gray-800">
+                          <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                          <span className="text-sm font-medium">
+                            No Hidden Costs
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-800">
+                          <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                          <span className="text-sm font-medium">
+                            Pay via M-Pesa
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-800">
+                          <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                          <span className="text-sm font-medium">
+                            Cancel Anytime
+                          </span>
+                        </div>
+                      </div>
+                    </div>
 
                     {/* CTAs */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
                       <a
                         href="https://app.menodao.org"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full sm:w-auto px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 text-center"
+                        className="w-full sm:w-auto px-10 py-5 bg-[#22C55E] hover:bg-green-600 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-emerald-500/50 hover:scale-105 text-center"
                       >
-                        Join MenoDAO Now
+                        Join Now - From KES 350/mo
                       </a>
-                      <button
-                        onClick={() => setIsHowItWorksOpen(true)}
-                        className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/50 text-white hover:bg-white/20 font-semibold rounded-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105"
+                      <a
+                        href="https://wa.me/254743178950?text=Hi%2C%20I%20want%20to%20learn%20more%20about%20MenoDAO"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto px-10 py-5 bg-white hover:bg-gray-50 text-gray-900 text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:scale-105 text-center flex items-center justify-center gap-2"
                       >
-                        How It Works
-                      </button>
+                        <MessageCircle className="h-5 w-5 text-green-600" />
+                        Join WhatsApp Community
+                      </a>
                     </div>
 
-                    {/* Secure Footer Text */}
-                    <p className="text-sm md:text-base text-gray-200 pt-4 drop-shadow-lg [text-shadow:_1px_1px_4px_rgb(0_0_0_/_80%)]">
-                      🔒 Secure. Transparent. Community Owned.
-                    </p>
+                    {/* Trust Indicators */}
+                    <div className="flex flex-wrap items-center justify-center gap-6 pt-6 text-white/90 text-sm">
+                      <div className="flex items-center gap-2">
+                        <Users className="h-4 w-4" />
+                        <span>500+ Active Members</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4" />
+                        <span>100% Transparent</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Wallet className="h-4 w-4" />
+                        <span>Community Owned</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -544,64 +587,406 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Compare Plans Section - NEW */}
+      <section className="py-16 md:py-24 bg-white border-b-4 border-emerald-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 font-outfit mb-4">
+              Choose Your Plan
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              All plans include M-Pesa payments, instant activation, and no
+              surprise bills. Pick what works for your family.
+            </p>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+            {/* Bronze Plan */}
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border-2 border-amber-200 hover:border-amber-400 transition-all hover:shadow-xl">
+              <div className="text-center mb-6">
+                <div className="inline-block bg-amber-100 px-4 py-1 rounded-full text-amber-800 text-sm font-bold mb-4">
+                  STARTER
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Bronze
+                </h3>
+                <div className="text-5xl font-bold text-gray-900 mb-2">
+                  350
+                  <span className="text-xl text-gray-600">/mo</span>
+                </div>
+                <p className="text-gray-600 text-sm">Best for singles</p>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      1 Checkup/Year
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Catch problems early
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Basic Consultation
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Talk to a dentist anytime
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Community Support
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      WhatsApp group access
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://app.menodao.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-4 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-center transition-all hover:scale-105"
+              >
+                Start with Bronze
+              </a>
+            </div>
+
+            {/* Silver Plan */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border-4 border-blue-400 hover:border-blue-500 transition-all hover:shadow-2xl relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                MOST POPULAR
+              </div>
+
+              <div className="text-center mb-6 mt-4">
+                <div className="inline-block bg-blue-100 px-4 py-1 rounded-full text-blue-800 text-sm font-bold mb-4">
+                  RECOMMENDED
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Silver
+                </h3>
+                <div className="text-5xl font-bold text-gray-900 mb-2">
+                  550
+                  <span className="text-xl text-gray-600">/mo</span>
+                </div>
+                <p className="text-gray-600 text-sm">Best for families</p>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      2 Checkups/Year
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Stay ahead of problems
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Basic Cleaning
+                    </p>
+                    <p className="text-sm text-gray-600">Keep teeth healthy</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Pain Relief</p>
+                    <p className="text-sm text-gray-600">
+                      Emergency consultation
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Priority Support
+                    </p>
+                    <p className="text-sm text-gray-600">Faster appointments</p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://app.menodao.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-center transition-all hover:scale-105 shadow-lg"
+              >
+                Join with Silver
+              </a>
+            </div>
+
+            {/* Gold Plan */}
+            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 border-2 border-orange-300 hover:border-orange-400 transition-all hover:shadow-xl">
+              <div className="text-center mb-6">
+                <div className="inline-block bg-orange-100 px-4 py-1 rounded-full text-orange-800 text-sm font-bold mb-4">
+                  PREMIUM
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Gold</h3>
+                <div className="text-5xl font-bold text-gray-900 mb-2">
+                  700
+                  <span className="text-xl text-gray-600">/mo</span>
+                </div>
+                <p className="text-gray-600 text-sm">Complete protection</p>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Unlimited Checkups
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Come as often as needed
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Full Cleaning</p>
+                    <p className="text-sm text-gray-600">
+                      Deep clean + polishing
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Priority Pain Relief
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Same-day emergency care
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Filling Coverage
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Emergency fillings included
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://app.menodao.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl text-center transition-all hover:scale-105"
+              >
+                Go Premium with Gold
+              </a>
+            </div>
+          </div>
+
+          {/* Real-World Example */}
+          <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-8 md:p-12 border-2 border-emerald-200">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+              Here's What You Save
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                    <X className="h-6 w-6 text-red-600" />
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-900">
+                    Without MenoDAO
+                  </h4>
+                </div>
+                <div className="space-y-3 text-gray-700">
+                  <p>
+                    • Toothache emergency:{" "}
+                    <span className="font-bold text-red-600">KES 5,000</span>
+                  </p>
+                  <p>
+                    • Filling:{" "}
+                    <span className="font-bold text-red-600">KES 8,000</span>
+                  </p>
+                  <p>
+                    • Cleaning:{" "}
+                    <span className="font-bold text-red-600">KES 3,000</span>
+                  </p>
+                  <p>
+                    • Checkup:{" "}
+                    <span className="font-bold text-red-600">KES 2,000</span>
+                  </p>
+                  <div className="border-t-2 border-gray-200 pt-3 mt-3">
+                    <p className="text-xl font-bold text-red-600">
+                      Total: KES 18,000+
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-emerald-400">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                    <CheckCircle2 className="h-6 w-6 text-emerald-600" />
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-900">
+                    With MenoDAO Gold
+                  </h4>
+                </div>
+                <div className="space-y-3 text-gray-700">
+                  <p>
+                    • Toothache emergency:{" "}
+                    <span className="font-bold text-emerald-600">Included</span>
+                  </p>
+                  <p>
+                    • Filling:{" "}
+                    <span className="font-bold text-emerald-600">Included</span>
+                  </p>
+                  <p>
+                    • Cleaning:{" "}
+                    <span className="font-bold text-emerald-600">Included</span>
+                  </p>
+                  <p>
+                    • Checkup:{" "}
+                    <span className="font-bold text-emerald-600">
+                      Unlimited
+                    </span>
+                  </p>
+                  <div className="border-t-2 border-emerald-200 pt-3 mt-3">
+                    <p className="text-xl font-bold text-emerald-600">
+                      Total: KES 700/month
+                    </p>
+                    <p className="text-sm text-gray-600 mt-1">
+                      That's KES 8,400/year
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-center text-lg font-bold text-gray-900 mt-8">
+              Save over <span className="text-emerald-600">KES 9,600</span> in
+              your first year!
+            </p>
+          </div>
+
+          {/* Not Sure CTA */}
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-4">
+              Not sure which plan is right for you?
+            </p>
+            <a
+              href="https://wa.me/254743178950?text=Hi%2C%20I%20need%20help%20choosing%20a%20plan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl transition-all hover:scale-105"
+            >
+              <MessageCircle className="h-5 w-5" />
+              Chat with Us on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Why MenoDAO Section */}
       <section className="py-20 md:py-32 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-outfit">
-              Why MenoDAO
+              Why Kenyans Choose MenoDAO
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              We are replacing the broken system of "pain and high costs" with a
-              system of "prevention and care."
+              We're changing how dental care works in Kenya. No more waiting
+              until you're in pain to see a dentist.
             </p>
           </div>
 
           {/* Three-Column Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Card 1: Affordable Contributions */}
+            {/* Card 1: Pay Small, Small */}
             <div className="bg-white rounded-xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-6">
                 <Wallet className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 font-outfit">
-                Affordable Contributions
+                Pay Small, Small
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Instead of paying KES 30,000 when you are in pain, you
-                contribute a small amount monthly (like buying airtime). This
-                pool protects you when you need it.
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Instead of paying KES 30,000 when you're in pain, you pay a
+                little every month - like buying airtime. When you need care,
+                it's already covered.
+              </p>
+              <p className="text-emerald-600 font-bold">
+                From just KES 350/month
               </p>
             </div>
 
-            {/* Card 2: Preventive Care (Orange Border) */}
+            {/* Card 2: Catch Problems Early */}
             <div className="bg-white rounded-xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 border-2 border-[#F97316]">
               <div className="flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 mb-6">
                 <Syringe className="h-8 w-8 text-[#F97316]" />
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 font-outfit">
-                Preventive Care
+                Catch Problems Early
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our membership focuses on catching problems early. We prioritize
-                checkups and cleaning so you never have to lose a tooth
-                unnecessarily.
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Regular checkups mean we find small problems before they become
+                big, expensive ones. You'll never lose a tooth unnecessarily.
+              </p>
+              <p className="text-orange-600 font-bold">
+                Prevention saves money
               </p>
             </div>
 
-            {/* Card 3: Community Owned */}
+            {/* Card 3: Your Community, Your Rules */}
             <div className="bg-white rounded-xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-6">
                 <Users className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 font-outfit">
-                Community Owned
+                Your Community, Your Rules
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                This isn't a big corporation. It is a cooperative. Members have
-                a voice in how the funds are used and how the community grows.
+              <p className="text-gray-600 leading-relaxed mb-4">
+                This isn't a big insurance company. It's a cooperative owned by
+                members like you. You have a say in how things work.
               </p>
+              <p className="text-blue-600 font-bold">100% community owned</p>
             </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <a
+              href="https://app.menodao.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-5 bg-[#22C55E] hover:bg-green-600 text-white text-lg font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
+            >
+              Join 500+ Members Today
+            </a>
+            <p className="text-gray-500 text-sm mt-4">
+              Takes less than 2 minutes to sign up
+            </p>
           </div>
         </div>
       </section>
@@ -919,71 +1304,113 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm inline-block mb-4">
-              Contact Us
+              Get Started
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-outfit mt-4">
-              Get in Touch
+              Ready to Join?
             </h2>
             <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-              Have questions? Want to learn more? Reach out to us through any of
-              these channels.
+              Choose how you want to get started. Both options are quick and
+              easy.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+            {/* Option 1: Sign Up Directly */}
+            <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 shadow-xl border-2 border-emerald-300 hover:border-emerald-400 transition-all">
+              <div className="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <UserPlus className="h-8 w-8 text-emerald-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 font-outfit mb-4 text-center">
+                Sign Up Now
+              </h3>
+              <p className="text-gray-700 mb-6 text-center leading-relaxed">
+                Create your account, choose your plan, and start getting care
+                today. Takes less than 2 minutes.
+              </p>
+              <a
+                href="https://app.menodao.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-4 bg-[#22C55E] hover:bg-green-600 text-white text-lg font-bold rounded-xl text-center transition-all hover:scale-105 shadow-lg"
+              >
+                Join MenoDAO
+              </a>
+              <p className="text-center text-sm text-gray-600 mt-4">
+                ✓ Instant activation • ✓ Pay via M-Pesa
+              </p>
+            </div>
+
+            {/* Option 2: Join WhatsApp First */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 shadow-xl border-2 border-green-300 hover:border-green-400 transition-all">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <MessageCircle className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 font-outfit mb-4 text-center">
+                Join WhatsApp Community
+              </h3>
+              <p className="text-gray-700 mb-6 text-center leading-relaxed">
+                Have questions? Want to learn more? Join our WhatsApp group and
+                chat with current members.
+              </p>
+              <a
+                href="https://wa.me/254743178950?text=Hi%2C%20I%20want%20to%20join%20the%20MenoDAO%20WhatsApp%20community"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-4 bg-green-600 hover:bg-green-700 text-white text-lg font-bold rounded-xl text-center transition-all hover:scale-105 shadow-lg"
+              >
+                Join WhatsApp Group
+              </a>
+              <p className="text-center text-sm text-gray-600 mt-4">
+                ✓ Ask questions • ✓ Meet members
+              </p>
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {/* WhatsApp */}
             <a
               href="https://wa.me/254743178950"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center group"
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-center group"
             >
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
-                <MessageCircle className="h-8 w-8 text-green-600" />
+              <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
+                <MessageCircle className="h-6 w-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 font-outfit mb-2">
+              <h3 className="text-lg font-bold text-gray-900 font-outfit mb-2">
                 WhatsApp
               </h3>
-              <p className="text-gray-600 mb-4">+254 743 178 950</p>
-              <p className="text-sm text-gray-500">Quick responses</p>
+              <p className="text-gray-600 text-sm mb-2">+254 743 178 950</p>
+              <p className="text-xs text-gray-500">Quick responses</p>
             </a>
 
             {/* Location */}
-            <div className="bg-white rounded-xl p-8 shadow-lg text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-8 w-8 text-blue-600" />
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+              <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-6 w-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 font-outfit mb-2">
+              <h3 className="text-lg font-bold text-gray-900 font-outfit mb-2">
                 Location
               </h3>
-              <p className="text-gray-600 mb-4">Mombasa & Kwale</p>
-              <p className="text-sm text-gray-500">Coming Soon</p>
+              <p className="text-gray-600 text-sm mb-2">Mombasa & Kwale</p>
+              <p className="text-xs text-gray-500">Now serving</p>
             </div>
 
             {/* Email */}
             <a
-              href="mailto:info@menodao.co.ke"
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center group"
+              href="mailto:info@menodao.org"
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-center group"
             >
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
-                <Mail className="h-8 w-8 text-orange-600" />
+              <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
+                <Mail className="h-6 w-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 font-outfit mb-2">
+              <h3 className="text-lg font-bold text-gray-900 font-outfit mb-2">
                 Email
               </h3>
-              <p className="text-gray-600 mb-4">info@menodao.org</p>
-              <p className="text-sm text-gray-500">General inquiries</p>
-            </a>
-          </div>
-
-          <div className="mt-12 text-center">
-            <a
-              href="https://app.menodao.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
-            >
-              Join Our Community
+              <p className="text-gray-600 text-sm mb-2">info@menodao.org</p>
+              <p className="text-xs text-gray-500">General inquiries</p>
             </a>
           </div>
         </div>
