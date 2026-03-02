@@ -494,11 +494,11 @@ export default function Home() {
                     </div>
 
                     {/* Value Proposition with Pricing */}
-                    <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 md:p-8 max-w-4xl mx-auto shadow-2xl">
-                      <p className="text-xl md:text-2xl lg:text-3xl text-gray-900 font-bold mb-4">
+                    <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8 max-w-4xl mx-auto shadow-2xl border border-white/20">
+                      <p className="text-xl md:text-2xl lg:text-3xl text-white font-bold mb-4 drop-shadow-lg [text-shadow:_2px_2px_4px_rgb(0_0_0_/_80%)]">
                         Pay as little as KES 350/month
                       </p>
-                      <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                      <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)]">
                         Get checkups, cleanings, and emergency care without
                         surprise bills. Join 500+ Kenyans who chose smart dental
                         care.
@@ -506,21 +506,21 @@ export default function Home() {
 
                       {/* Quick Benefits */}
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                        <div className="flex items-center gap-2 text-gray-800">
-                          <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                          <span className="text-sm font-medium">
+                        <div className="flex items-center gap-2 text-white">
+                          <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 drop-shadow-lg" />
+                          <span className="text-sm font-medium drop-shadow-lg">
                             No Hidden Costs
                           </span>
                         </div>
-                        <div className="flex items-center gap-2 text-gray-800">
-                          <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                          <span className="text-sm font-medium">
+                        <div className="flex items-center gap-2 text-white">
+                          <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 drop-shadow-lg" />
+                          <span className="text-sm font-medium drop-shadow-lg">
                             Pay via M-Pesa
                           </span>
                         </div>
-                        <div className="flex items-center gap-2 text-gray-800">
-                          <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                          <span className="text-sm font-medium">
+                        <div className="flex items-center gap-2 text-white">
+                          <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 drop-shadow-lg" />
+                          <span className="text-sm font-medium drop-shadow-lg">
                             Cancel Anytime
                           </span>
                         </div>
@@ -538,7 +538,7 @@ export default function Home() {
                         Join Now - From KES 350/mo
                       </a>
                       <a
-                        href="https://wa.me/254743178950?text=Hi%2C%20I%20want%20to%20learn%20more%20about%20MenoDAO"
+                        href="https://chat.whatsapp.com/ItBoBWNdvPG7LGt8Ieu13C?mode=wwt"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full sm:w-auto px-10 py-5 bg-white hover:bg-gray-50 text-gray-900 text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:scale-105 text-center flex items-center justify-center gap-2"
@@ -896,7 +896,7 @@ export default function Home() {
               Not sure which plan is right for you?
             </p>
             <a
-              href="https://wa.me/254743178950?text=Hi%2C%20I%20need%20help%20choosing%20a%20plan"
+              href="https://chat.whatsapp.com/ItBoBWNdvPG7LGt8Ieu13C?mode=wwt"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl transition-all hover:scale-105"
