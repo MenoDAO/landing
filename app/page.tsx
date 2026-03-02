@@ -619,7 +619,7 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <div className="relative w-48 h-20">
                 <Image
-                  src="/mpesa-logo.svg"
+                  src="/mpesa-logo.png"
                   alt="Lipa na M-PESA Logo"
                   fill
                   className="object-contain"
