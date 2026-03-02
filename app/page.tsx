@@ -584,7 +584,7 @@ export default function Home() {
                     </div>
 
                     {/* Trust Indicators */}
-                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 md:pt-6 text-white/90 text-xs md:text-sm">
+                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 pb-4 md:pt-6 text-white/90 text-xs md:text-sm">
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4" />
                         <span>500+ Active Members</span>
@@ -627,11 +627,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-12">
-              <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-                Message from Leadership
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
                 Why We Built MenoDAO
               </h2>
             </div>
