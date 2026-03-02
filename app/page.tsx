@@ -256,17 +256,19 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* FOMO Urgency Banner */}
       <div className="fixed top-0 left-0 right-0 z-[100] bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-3 text-center">
-          <p className="text-sm md:text-base font-bold animate-pulse flex items-center justify-center gap-2">
-            <Activity className="h-4 w-4" />
-            EID PILOT LAUNCH: ONLY 100 SPOTS LEFT IN MOMBASA & KWALE
+        <div className="max-w-7xl mx-auto px-4 py-4 text-center">
+          <p className="text-xs sm:text-sm md:text-base font-bold animate-pulse flex items-center justify-center gap-2">
+            <Activity className="h-4 w-4 flex-shrink-0" />
+            <span>
+              EID PILOT LAUNCH: ONLY 100 SPOTS LEFT IN MOMBASA & KWALE
+            </span>
           </p>
         </div>
       </div>
 
       {/* Navigation Bar - Transparent with backdrop blur */}
       <nav
-        className={`fixed top-[48px] left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-[56px] left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
         }`}
       >
@@ -508,7 +510,7 @@ export default function Home() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-20 h-full flex items-center justify-center pt-32 pb-20 md:pt-40 md:pb-0">
+              <div className="relative z-20 h-full flex items-center justify-center pt-36 pb-20 md:pt-44 md:pb-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <div className="text-center space-y-4 md:space-y-6">
                     {/* Pre-Header */}
@@ -518,11 +520,11 @@ export default function Home() {
 
                     {/* Headline with Text Shadow for Legibility */}
                     <div className="space-y-2 md:space-y-4">
-                      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                        Stop Fearing The Dentist Bill.
+                      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
+                        Stop Paying KES 30,000
                       </h1>
-                      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-emerald-400 drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                        Protect Your Family for 350 KES.
+                      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-emerald-400 drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
+                        When You're In Pain.
                       </h1>
                     </div>
 
