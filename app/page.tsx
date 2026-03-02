@@ -434,7 +434,10 @@ export default function Home() {
       </nav>
 
       {/* Hero Carousel Section - Fullscreen */}
-      <section id="home" className="relative h-screen overflow-hidden">
+      <section
+        id="home"
+        className="relative h-screen overflow-hidden md:overflow-hidden overflow-y-auto"
+      >
         {/* Carousel Container */}
         <div
           className="relative w-full h-full"
@@ -475,9 +478,9 @@ export default function Home() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-20 h-full flex items-start md:items-center justify-center pt-24 pb-20 md:pt-0 md:pb-0">
+              <div className="relative z-20 min-h-full flex items-start md:items-center justify-center pt-24 pb-32 md:pt-0 md:pb-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                  <div className="text-center space-y-6 md:space-y-8">
+                  <div className="text-center space-y-4 md:space-y-8">
                     {/* Pre-Header */}
                     <p className="text-sm md:text-base text-emerald-400 uppercase tracking-wider font-semibold drop-shadow-lg bg-emerald-900/40 px-4 py-2 rounded-full inline-block">
                       ✓ NOW SERVING MOMBASA & KWALE
