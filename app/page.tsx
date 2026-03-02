@@ -255,25 +255,25 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* FOMO Urgency Banner */}
-      <div className="fixed top-0 left-0 right-0 z-[100] bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-4 text-center">
-          <p className="text-xs sm:text-sm md:text-base font-bold animate-pulse flex items-center justify-center gap-2">
-            <Activity className="h-4 w-4 flex-shrink-0" />
-            <span>
-              EID PILOT LAUNCH: ONLY 100 SPOTS LEFT IN MOMBASA & KWALE
-            </span>
+      <div className="fixed top-0 left-0 right-0 z-[100] bg-red-600 text-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4 text-center">
+          <p className="text-xs sm:text-sm font-bold flex items-center justify-center gap-2">
+            <Activity className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+            <span>EID PILOT LAUNCH: ONLY 100 SPOTS LEFT</span>
           </p>
         </div>
       </div>
 
       {/* Navigation Bar - Transparent with backdrop blur */}
       <nav
-        className={`fixed top-[56px] left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        className={`fixed top-[44px] sm:top-[52px] left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-md"
+            : "bg-white/10 backdrop-blur-sm"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
             <div className="flex items-center">
               <a
                 href="#home"
@@ -510,20 +510,20 @@ export default function Home() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-20 h-full flex items-center justify-center pt-36 pb-20 md:pt-44 md:pb-0">
+              <div className="relative z-20 h-full flex items-center justify-center pt-40 sm:pt-44 pb-20 md:pt-48 md:pb-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <div className="text-center space-y-4 md:space-y-6">
                     {/* Pre-Header */}
-                    <p className="text-sm md:text-base text-emerald-400 uppercase tracking-wider font-semibold drop-shadow-lg bg-emerald-900/40 px-4 py-2 rounded-full inline-block">
+                    <p className="text-xs sm:text-sm md:text-base text-emerald-400 uppercase tracking-wider font-semibold drop-shadow-lg bg-emerald-900/40 px-4 py-2 rounded-full inline-block">
                       ✓ NOW SERVING MOMBASA & KWALE
                     </p>
 
                     {/* Headline with Text Shadow for Legibility */}
                     <div className="space-y-2 md:space-y-4">
-                      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
+                      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
                         Stop Paying KES 30,000
                       </h1>
-                      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-emerald-400 drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
+                      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight font-outfit text-emerald-400 drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
                         When You're In Pain.
                       </h1>
                     </div>
