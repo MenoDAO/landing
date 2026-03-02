@@ -584,7 +584,7 @@ export default function Home() {
                     </div>
 
                     {/* Trust Indicators */}
-                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 pb-4 md:pt-6 text-white/90 text-xs md:text-sm">
+                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 pb-8 md:pb-4 md:pt-6 text-white/90 text-xs md:text-sm">
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4" />
                         <span>500+ Active Members</span>
@@ -604,8 +604,8 @@ export default function Home() {
             </div>
           ))}
 
-          {/* Slide Indicators - Hidden on mobile to avoid overlap */}
-          <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-30 gap-2">
+          {/* Slide Indicators - Hidden */}
+          <div className="hidden absolute bottom-8 left-1/2 -translate-x-1/2 z-30 gap-2">
             {carouselSlides.map((_, index) => (
               <button
                 key={index}
