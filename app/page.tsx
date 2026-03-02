@@ -475,7 +475,7 @@ export default function Home() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-20 h-full flex items-center justify-center">
+              <div className="relative z-20 h-full flex items-center justify-center pt-20 pb-24 md:pt-0 md:pb-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <div className="text-center space-y-6 md:space-y-8">
                     {/* Pre-Header */}
@@ -549,7 +549,7 @@ export default function Home() {
                     </div>
 
                     {/* Trust Indicators */}
-                    <div className="flex flex-wrap items-center justify-center gap-6 pt-6 text-white/90 text-sm">
+                    <div className="flex flex-wrap items-center justify-center gap-6 pt-6 pb-4 md:pb-0 text-white/90 text-sm">
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4" />
                         <span>500+ Active Members</span>
