@@ -28,7 +28,12 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { partnerClinics, testimonials, heroContent } from "./data/content";
+import {
+  partnerClinics,
+  testimonials,
+  heroContent,
+  companyInfo,
+} from "./data/content";
 
 // Gallery Image Component with Next.js Image optimization
 function GalleryImage({ index }: { index: number }) {
@@ -607,6 +612,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* M-Pesa Trust Badge Section */}
+      <section className="py-8 bg-gradient-to-r from-green-50 to-emerald-50 border-y-2 border-green-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
+            <div className="flex items-center gap-3">
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-2xl">M</span>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Pay Securely With</p>
+                <p className="text-2xl font-bold text-green-600">M-PESA</p>
+              </div>
+            </div>
+            <div className="hidden md:block w-px h-12 bg-green-300"></div>
+            <div className="flex items-center gap-2 text-gray-700">
+              <CheckCircle2 className="h-5 w-5 text-green-600" />
+              <span className="font-medium">
+                Instant activation after payment
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-700">
+              <CheckCircle2 className="h-5 w-5 text-green-600" />
+              <span className="font-medium">Cancel anytime, no penalties</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Partner Clinics Section - CRITICAL TRUST SIGNAL */}
       <section className="py-12 md:py-16 bg-white border-b-2 border-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1125,14 +1158,14 @@ export default function Home() {
 
           {/* Rules Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {/* Waiting Periods Card */}
+            {/* Coverage Start Times Card */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                   <Clock className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Waiting Periods
+                  When Coverage Starts
                 </h3>
               </div>
               <div className="space-y-4">
@@ -1140,10 +1173,10 @@ export default function Home() {
                   <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-gray-900">
-                      Emergency Care: 14 Days
+                      Emergency Care: Starts in 14 Days
                     </p>
                     <p className="text-sm text-gray-600">
-                      Pain relief and urgent consultations
+                      Pain relief and urgent consultations covered
                     </p>
                   </div>
                 </div>
@@ -1151,24 +1184,24 @@ export default function Home() {
                   <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-gray-900">
-                      Fillings & Root Canals: 60 Days
+                      Major Procedures: Starts in 60 Days
                     </p>
                     <p className="text-sm text-gray-600">
-                      Major procedures require longer waiting period
+                      Fillings, root canals, and advanced care
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Skip Waiting Card */}
+            {/* Instant Coverage Card */}
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
                   <Zap className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Skip the Wait
+                  Get Instant Coverage
                 </h3>
               </div>
               <div className="space-y-4">
@@ -1179,7 +1212,7 @@ export default function Home() {
                       Pay 1 Year Upfront
                     </p>
                     <p className="text-sm text-gray-600">
-                      Get immediate access to all benefits
+                      Start using all benefits immediately
                     </p>
                   </div>
                 </div>
@@ -1187,10 +1220,10 @@ export default function Home() {
                   <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-gray-900">
-                      No Waiting Periods
+                      Zero Wait Time
                     </p>
                     <p className="text-sm text-gray-600">
-                      Start using your benefits right away
+                      Access emergency and major care from day 1
                     </p>
                   </div>
                 </div>
@@ -1838,9 +1871,39 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Copyright */}
-          <div className="text-center border-t border-gray-800 pt-8">
-            <p className="text-sm md:text-base text-gray-400">
+          {/* Company Info & Copyright */}
+          <div className="border-t border-gray-800 pt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              {/* Registration Info */}
+              <div className="text-center md:text-left">
+                <h4 className="text-white font-semibold mb-2">
+                  Registered Cooperative
+                </h4>
+                <p className="text-sm text-gray-400">
+                  Reg. No: {companyInfo.registrationNumber}
+                </p>
+              </div>
+
+              {/* Physical Address */}
+              <div className="text-center md:text-left">
+                <h4 className="text-white font-semibold mb-2 flex items-center justify-center md:justify-start gap-2">
+                  <MapPin className="h-4 w-4" />
+                  Office Location
+                </h4>
+                <p className="text-sm text-gray-400">
+                  {companyInfo.physicalAddress}
+                </p>
+              </div>
+
+              {/* Contact */}
+              <div className="text-center md:text-left">
+                <h4 className="text-white font-semibold mb-2">Contact Us</h4>
+                <p className="text-sm text-gray-400">{companyInfo.email}</p>
+                <p className="text-sm text-gray-400">{companyInfo.phone}</p>
+              </div>
+            </div>
+
+            <p className="text-sm md:text-base text-gray-400 text-center">
               © 2025 MenoDAO Cooperative. All rights reserved.
             </p>
           </div>

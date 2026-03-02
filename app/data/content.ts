@@ -60,3 +60,11 @@ export const heroContent = {
   ctaText: "Join for KES 350/mo",
   ctaSubtext: "Have questions? Chat with us on WhatsApp →",
 };
+
+export const companyInfo = {
+  registrationNumber: "CPR/2024/12345", // UPDATE with real registration number
+  physicalAddress: "Moi Avenue, Mombasa CBD", // UPDATE with real address
+  email: "info@menodao.org",
+  phone: "+254 743 178 950",
+  whatsapp: "254743178950",
+};
