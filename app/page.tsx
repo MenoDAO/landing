@@ -24,9 +24,11 @@ import {
   Clock,
   Shield,
   Zap,
+  Building2,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { partnerClinics, testimonials, heroContent } from "./data/content";
 
 // Gallery Image Component with Next.js Image optimization
 function GalleryImage({ index }: { index: number }) {
@@ -521,65 +523,48 @@ export default function Home() {
                     {/* Headline with Text Shadow for Legibility */}
                     <div className="space-y-2 md:space-y-4">
                       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                        Stop Paying KES 30,000
-                      </h1>
-                      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight font-outfit text-emerald-400 drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                        When You're In Pain.
+                        {heroContent.headline}
                       </h1>
                     </div>
 
-                    {/* Value Proposition with Pricing */}
-                    <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-8 max-w-4xl mx-auto shadow-2xl border border-white/20">
-                      <p className="text-xl md:text-2xl lg:text-3xl text-white font-bold mb-4 drop-shadow-lg [text-shadow:_2px_2px_4px_rgb(0_0_0_/_80%)]">
-                        Pay as little as KES 350/month
-                      </p>
-                      <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)]">
-                        Get checkups, cleanings, and emergency care without
-                        surprise bills. Unlock up to 15,000 KES in
-                        zero-paperwork dental care at top local clinics.
-                      </p>
+                    {/* Simplified Value Proposition */}
+                    <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)] max-w-2xl mx-auto">
+                      {heroContent.subheadline}
+                    </p>
 
-                      {/* Quick Benefits */}
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                        <div className="flex items-center gap-2 text-white">
-                          <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 drop-shadow-lg" />
-                          <span className="text-sm font-medium drop-shadow-lg">
-                            No Hidden Costs
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2 text-white">
-                          <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 drop-shadow-lg" />
-                          <span className="text-sm font-medium drop-shadow-lg">
-                            Pay via M-Pesa
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2 text-white">
-                          <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 drop-shadow-lg" />
-                          <span className="text-sm font-medium drop-shadow-lg">
-                            Cancel Anytime
-                          </span>
-                        </div>
+                    {/* Trust Badges - Partner Clinics */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-white/95">
+                      <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                        <Building2 className="h-4 w-4 text-emerald-400" />
+                        <span className="text-sm font-medium">
+                          Partnered with {partnerClinics.length}+ clinics
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                        <Users className="h-4 w-4 text-emerald-400" />
+                        <span className="text-sm font-medium">
+                          Join 500+ members
+                        </span>
                       </div>
                     </div>
 
-                    {/* CTAs */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
+                    {/* Single CTA */}
+                    <div className="flex flex-col items-center justify-center gap-3 pt-6">
                       <a
                         href="https://app.menodao.org"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full max-w-xs sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-base font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 text-center"
+                        className="w-full max-w-sm px-10 py-5 bg-green-600 hover:bg-green-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-green-500/50 hover:scale-105 text-center"
                       >
-                        Secure My Spot - From KES 350/mo
+                        {heroContent.ctaText}
                       </a>
                       <a
-                        href="https://chat.whatsapp.com/ItBoBWNdvPG7LGt8Ieu13C?mode=wwt"
+                        href="https://wa.me/254743178950"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full max-w-xs sm:w-auto px-8 py-4 bg-white hover:bg-gray-50 text-gray-900 text-base font-bold rounded-xl transition-all duration-200 shadow-2xl hover:scale-105 text-center flex items-center justify-center gap-2"
+                        className="text-white/80 hover:text-white text-sm underline"
                       >
-                        <MessageCircle className="h-5 w-5 text-green-600" />
-                        Join WhatsApp Community
+                        {heroContent.ctaSubtext}
                       </a>
                     </div>
 
@@ -618,6 +603,56 @@ export default function Home() {
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Clinics Section - CRITICAL TRUST SIGNAL */}
+      <section className="py-12 md:py-16 bg-white border-b-2 border-green-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              Visit Our Partner Clinics
+            </h2>
+            <p className="text-gray-600">
+              Get treated at trusted dental clinics across Mombasa & Kwale
+            </p>
+          </div>
+
+          {/* Clinics Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {partnerClinics.map((clinic, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-lg"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="bg-green-600 rounded-full p-2 flex-shrink-0">
+                    <Building2 className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">
+                      {clinic.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 flex items-center gap-1">
+                      <MapPin className="h-3 w-3" />
+                      {clinic.location}
+                    </p>
+                    <span className="inline-block mt-2 text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                      {clinic.area}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust Statement */}
+          <div className="text-center bg-green-50 rounded-xl p-6 border-2 border-green-200">
+            <p className="text-gray-700 font-medium">
+              <CheckCircle2 className="inline h-5 w-5 text-green-600 mr-2" />
+              No paperwork needed - just show your MenoDAO membership card
+            </p>
           </div>
         </div>
       </section>
@@ -1177,10 +1212,10 @@ export default function Home() {
                   <CheckCircle2 className="h-5 w-5 text-purple-600 flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-gray-900">
-                      Smart Contract Treasury
+                      Secure Digital Treasury
                     </p>
                     <p className="text-sm text-gray-600">
-                      Funds secured by blockchain technology
+                      Your contributions are tracked transparently
                     </p>
                   </div>
                 </div>
@@ -1191,7 +1226,7 @@ export default function Home() {
                       Audited & Transparent
                     </p>
                     <p className="text-sm text-gray-600">
-                      Every transaction is recorded and verifiable
+                      Every shilling is accounted for and verifiable
                     </p>
                   </div>
                 </div>
@@ -1528,6 +1563,70 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section - SOCIAL PROOF */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              Real Stories
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4">
+              What Our Members Say
+            </h2>
+            <p className="text-lg text-gray-600 mt-4">
+              Join hundreds of Kenyans saving money on dental care
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border-2 border-green-100"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-sm text-gray-600 flex items-center gap-1">
+                      <MapPin className="h-3 w-3" />
+                      {testimonial.location}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  "{testimonial.text}"
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <span className="text-xs text-gray-500">
+                    {testimonial.treatment}
+                  </span>
+                  <span className="text-sm font-bold text-green-600">
+                    Saved KES {testimonial.savings}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <a
+              href="https://app.menodao.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-5 bg-green-600 hover:bg-green-700 text-white text-lg font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
+            >
+              Join for KES 350/mo
+            </a>
           </div>
         </div>
       </section>
