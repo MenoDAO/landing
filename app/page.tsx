@@ -510,7 +510,7 @@ export default function Home() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-20 h-full flex items-center justify-center pt-40 sm:pt-44 pb-20 md:pt-48 md:pb-0">
+              <div className="relative z-20 h-full flex items-center justify-center pt-56 sm:pt-44 pb-20 md:pt-48 md:pb-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <div className="text-center space-y-4 md:space-y-6">
                     {/* Pre-Header */}
@@ -563,12 +563,12 @@ export default function Home() {
                     </div>
 
                     {/* CTAs */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
                       <a
                         href="https://app.menodao.org"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full sm:w-auto px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 text-center"
+                        className="w-full max-w-xs sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-base font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 text-center"
                       >
                         Secure My Spot - From KES 350/mo
                       </a>
@@ -576,7 +576,7 @@ export default function Home() {
                         href="https://chat.whatsapp.com/ItBoBWNdvPG7LGt8Ieu13C?mode=wwt"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full sm:w-auto px-10 py-5 bg-white hover:bg-gray-50 text-gray-900 text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:scale-105 text-center flex items-center justify-center gap-2"
+                        className="w-full max-w-xs sm:w-auto px-8 py-4 bg-white hover:bg-gray-50 text-gray-900 text-base font-bold rounded-xl transition-all duration-200 shadow-2xl hover:scale-105 text-center flex items-center justify-center gap-2"
                       >
                         <MessageCircle className="h-5 w-5 text-green-600" />
                         Join WhatsApp Community
