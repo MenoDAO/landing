@@ -106,15 +106,13 @@ export default function Home() {
     }
   }, [isHowItWorksOpen]);
 
-  // Dynamically generate carousel slides from available images (up to 12)
+  // Dynamically generate carousel slides from available images (up to 11)
   const carouselSlides: Array<{
     image: string;
     bgGradient: string;
     title: string;
     subtitle: string;
     description: string;
-    cta: string;
-    ctaAction: () => void;
   }> = Array.from({ length: 11 }, (_, index) => {
     const slideNumber = index + 1;
     const gradients = [
@@ -140,8 +138,6 @@ export default function Home() {
         subtitle: "Powered by Community.",
         description:
           "Join the first Community Health Membership that protects your smile and your pocket.",
-        cta: "Join Founding Members",
-        ctaAction: () => setIsModalOpen(true),
       };
     } else if (slideNumber === 2) {
       return {
@@ -151,8 +147,6 @@ export default function Home() {
         subtitle: "No Surprise Bills. Just Fair Care.",
         description:
           "From KES 350/month, access quality dental care without the financial stress.",
-        cta: "View Plans",
-        ctaAction: () => scrollToSection("services"),
       };
     } else if (slideNumber === 3) {
       return {
@@ -162,8 +156,6 @@ export default function Home() {
         subtitle: "Transparent. Secure. Trusted.",
         description:
           "Every shilling is accounted for. Your health data stays private. You're in control.",
-        cta: "Learn More",
-        ctaAction: () => scrollToSection("about"),
       };
     } else {
       // Generic content for additional slides
@@ -173,8 +165,6 @@ export default function Home() {
         title: "MenoDAO",
         subtitle: "Community Dental Care",
         description: "Building healthier communities, one smile at a time.",
-        cta: "Join Us",
-        ctaAction: () => setIsModalOpen(true),
       };
     }
   });
@@ -223,75 +213,6 @@ export default function Home() {
     if (isRightSwipe) {
       prevSlide();
     }
-  };
-
-  const packages = [
-    "Gold Membership - KES 700/mo (Recommended)",
-    "Silver Membership - KES 550/mo",
-    "Bronze Membership - KES 350/mo",
-  ];
-
-  const packageBenefits = {
-    "Gold Membership - KES 700/mo (Recommended)": [
-      "Unlimited Checkups (Bila Kikomo)",
-      "Priority Pain Relief",
-      "Full Cleaning & Polishing",
-      "Emergency Filling Coverage",
-    ],
-    "Silver Membership - KES 550/mo": [
-      "2 Checkups per Year",
-      "Basic Cleaning",
-      "Pain Relief Consultation",
-    ],
-    "Bronze Membership - KES 350/mo": [
-      "1 Checkup per Year",
-      "Basic Consultation",
-    ],
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const benefits =
-      packageBenefits[formData.package as keyof typeof packageBenefits] || [];
-    const benefitsText = benefits
-      .map((benefit, index) => `${index + 1}. ${benefit}`)
-      .join("\n");
-
-    const message = `Hello! I would like to join MenoDAO as a Founding Member.
-
-*MEMBERSHIP APPLICATION*
-
-*Full Name (Jina Kamili):*
-${formData.fullName}
-
-*Phone Number (M-Pesa):*
-${formData.phoneNumber}
-
-*Location (Eneo):*
-${formData.location}
-
-*Selected Package:*
-${formData.package}
-
-*Benefits:*
-${benefitsText}
-
-Thank you!`;
-
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/254743178950?text=${encodedMessage}`;
-
-    window.open(whatsappUrl, "_blank");
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -1136,188 +1057,6 @@ Thank you!`;
         </div>
       </footer>
 
-      {/* Membership Form Modal */}
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50"
-          onClick={() => setIsModalOpen(false)}
-        >
-          <div
-            className="bg-[#F8FAFC] w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="bg-white rounded-t-lg border-t-4 border-[#3B82F6] p-6 md:p-8">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-outfit mb-2">
-                    MenoDAO Membership
-                  </h2>
-                  <p className="text-base text-gray-600">
-                    Join the community. Protect your smile.
-                  </p>
-                </div>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-            </div>
-
-            {/* Form Card */}
-            <div className="bg-white m-4 md:m-6 rounded-xl shadow-lg p-6 md:p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Full Name Field */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name (Jina Kamili)
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                      placeholder="e.g. John Kamau"
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-
-                {/* Phone Number Field */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number (M-Pesa)
-                  </label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      value={formData.phoneNumber}
-                      onChange={handleInputChange}
-                      placeholder="e.g. 0712345678"
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-
-                {/* Location Field */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Location (Eneo)
-                  </label>
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                    <input
-                      type="text"
-                      name="location"
-                      value={formData.location}
-                      onChange={handleInputChange}
-                      placeholder="e.g. Ukunda, Kwale"
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-
-                {/* Package Selection */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Select Your Package (Chagua Plan)
-                  </label>
-                  <div className="relative">
-                    <Coins className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 z-10" />
-                    <select
-                      name="package"
-                      value={formData.package}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full pl-10 pr-10 py-3 bg-blue-50 border border-blue-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer"
-                    >
-                      {packages.map((pkg) => (
-                        <option key={pkg} value={pkg}>
-                          {pkg}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <svg
-                        className="h-5 w-5 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Benefits Section */}
-                {packageBenefits[
-                  formData.package as keyof typeof packageBenefits
-                ] && (
-                  <div className="bg-blue-50 rounded-lg p-6">
-                    <div className="flex items-center mb-4">
-                      <Star className="h-5 w-5 text-[#F97316] mr-2" />
-                      <h3 className="text-lg font-bold text-gray-900">
-                        {formData.package.includes("Gold")
-                          ? "Gold Benefits:"
-                          : formData.package.includes("Silver")
-                            ? "Silver Benefits:"
-                            : "Bronze Benefits:"}
-                      </h3>
-                    </div>
-                    <ul className="space-y-2">
-                      {packageBenefits[
-                        formData.package as keyof typeof packageBenefits
-                      ].map((benefit, index) => (
-                        <li key={index} className="flex items-start">
-                          <CheckCircle2 className="h-5 w-5 text-[#22C55E] mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-[#22C55E] hover:bg-green-600 text-white font-semibold py-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
-                >
-                  <span>Submit Application via WhatsApp</span>
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                  </svg>
-                </button>
-
-                {/* Disclaimer */}
-                <p className="text-xs text-gray-500 text-center">
-                  By submitting, you agree to the community rules. No payments
-                  are required today.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* How It Works Modal */}
       {isHowItWorksOpen && (
         <div
@@ -1437,15 +1176,15 @@ Thank you!`;
 
               {/* Get Started Button */}
               <div className="text-center mt-12 md:mt-16">
-                <button
-                  onClick={() => {
-                    setIsHowItWorksOpen(false);
-                    setIsModalOpen(true);
-                  }}
-                  className="px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
+                <a
+                  href="https://app.menodao.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsHowItWorksOpen(false)}
+                  className="inline-block px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
                 >
                   Get Started
-                </button>
+                </a>
               </div>
             </div>
           </div>
