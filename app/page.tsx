@@ -20,6 +20,10 @@ import {
   Briefcase,
   Image as ImageIcon,
   Mail,
+  Activity,
+  Clock,
+  Shield,
+  Zap,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -71,6 +75,23 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+
+  // Prevent autoscroll on page load
+  useEffect(() => {
+    // Prevent scroll restoration first
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    // Force scroll to top immediately and after a short delay
+    window.scrollTo(0, 0);
+
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -233,9 +254,19 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* FOMO Urgency Banner */}
+      <div className="fixed top-0 left-0 right-0 z-[100] bg-red-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 py-3 text-center">
+          <p className="text-sm md:text-base font-bold animate-pulse flex items-center justify-center gap-2">
+            <Activity className="h-4 w-4" />
+            EID PILOT LAUNCH: ONLY 100 SPOTS LEFT IN MOMBASA & KWALE
+          </p>
+        </div>
+      </div>
+
       {/* Navigation Bar - Transparent with backdrop blur */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-[48px] left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
         }`}
       >
@@ -332,7 +363,7 @@ export default function Home() {
                 href="https://app.menodao.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Get Started
               </a>
@@ -341,8 +372,10 @@ export default function Home() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden transition-colors ${
-                scrolled ? "text-gray-700" : "text-white drop-shadow-lg"
+              className={`md:hidden p-2 rounded-lg transition-all ${
+                scrolled
+                  ? "text-gray-700 hover:bg-gray-100"
+                  : "text-white bg-black/30 backdrop-blur-sm hover:bg-black/40 shadow-lg"
               }`}
             >
               {mobileMenuOpen ? (
@@ -423,7 +456,7 @@ export default function Home() {
                   href="https://app.menodao.org"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 px-5 py-3 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 text-center shadow-lg"
+                  className="mt-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 text-center shadow-lg"
                 >
                   Get Started
                 </a>
@@ -475,7 +508,7 @@ export default function Home() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-20 h-full flex items-center justify-center py-20 md:py-0">
+              <div className="relative z-20 h-full flex items-center justify-center pt-32 pb-20 md:pt-40 md:pb-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <div className="text-center space-y-4 md:space-y-6">
                     {/* Pre-Header */}
@@ -486,10 +519,10 @@ export default function Home() {
                     {/* Headline with Text Shadow for Legibility */}
                     <div className="space-y-2 md:space-y-4">
                       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                        Stop Paying KES 30,000
+                        Stop Fearing The Dentist Bill.
                       </h1>
                       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-outfit text-emerald-400 drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                        When You're in Pain
+                        Protect Your Family for 350 KES.
                       </h1>
                     </div>
 
@@ -500,8 +533,8 @@ export default function Home() {
                       </p>
                       <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)]">
                         Get checkups, cleanings, and emergency care without
-                        surprise bills. Join 500+ Kenyans who chose smart dental
-                        care.
+                        surprise bills. Unlock up to 15,000 KES in
+                        zero-paperwork dental care at top local clinics.
                       </p>
 
                       {/* Quick Benefits */}
@@ -533,9 +566,9 @@ export default function Home() {
                         href="https://app.menodao.org"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full sm:w-auto px-10 py-5 bg-[#22C55E] hover:bg-green-600 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-emerald-500/50 hover:scale-105 text-center"
+                        className="w-full sm:w-auto px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 text-center"
                       >
-                        Join Now - From KES 350/mo
+                        Secure My Spot - From KES 350/mo
                       </a>
                       <a
                         href="https://chat.whatsapp.com/ItBoBWNdvPG7LGt8Ieu13C?mode=wwt"
@@ -583,6 +616,54 @@ export default function Home() {
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CEO Message Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                Message from Leadership
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4">
+                Why We Built MenoDAO
+              </h2>
+            </div>
+
+            {/* CEO Card */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+                {/* CEO Photo */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <User className="h-12 w-12 md:h-16 md:w-16 text-white" />
+                  </div>
+                </div>
+
+                {/* Message Content */}
+                <div className="flex-1 text-center md:text-left">
+                  <div className="text-4xl md:text-5xl text-blue-600 mb-4">
+                    "
+                  </div>
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+                    I built MenoDAO because I saw too many families choosing
+                    between dental care and putting food on the table. No one
+                    should have to make that choice. By pooling our resources as
+                    a community, we can all afford the care we deserve.
+                  </p>
+                  <div className="border-t border-gray-200 pt-6">
+                    <p className="font-bold text-gray-900 text-lg">
+                      Dr. Said Ruwa
+                    </p>
+                    <p className="text-gray-600">Founder & CEO, MenoDAO</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -660,7 +741,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="block w-full py-4 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-center transition-all hover:scale-105"
               >
-                Start with Bronze
+                Secure My Bronze Spot
               </a>
             </div>
 
@@ -731,7 +812,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="block w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-center transition-all hover:scale-105 shadow-lg"
               >
-                Join with Silver
+                Secure My Silver Spot
               </a>
             </div>
 
@@ -800,7 +881,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="block w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl text-center transition-all hover:scale-105"
               >
-                Go Premium with Gold
+                Secure My Gold Spot
               </a>
             </div>
           </div>
@@ -980,12 +1061,190 @@ export default function Home() {
               href="https://app.menodao.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-10 py-5 bg-[#22C55E] hover:bg-green-600 text-white text-lg font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
+              className="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
             >
-              Join 500+ Members Today
+              Secure Your Spot Today
             </a>
             <p className="text-gray-500 text-sm mt-4">
               Takes less than 2 minutes to sign up
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Chama Rules Transparency Section */}
+      <section className="py-20 md:py-32 bg-white border-t-4 border-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              Full Transparency
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mt-4">
+              Chama Rules (Full Transparency)
+            </h2>
+            <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
+              No hidden rules. No surprises. Here's exactly how MenoDAO
+              operates.
+            </p>
+          </div>
+
+          {/* Rules Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Waiting Periods Card */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                  <Clock className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  Waiting Periods
+                </h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Emergency Care: 14 Days
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Pain relief and urgent consultations
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Fillings & Root Canals: 60 Days
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Major procedures require longer waiting period
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Skip Waiting Card */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                  <Zap className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  Skip the Wait
+                </h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Pay 1 Year Upfront
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Get immediate access to all benefits
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      No Waiting Periods
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Start using your benefits right away
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Money Safety Card */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-200">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  Your Money is Safe
+                </h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-purple-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Smart Contract Treasury
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Funds secured by blockchain technology
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-purple-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      Audited & Transparent
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Every transaction is recorded and verifiable
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Community Governance Card */}
+            <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8 border-2 border-orange-200">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
+                  <Users className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  Member-Owned
+                </h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-orange-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      You Have a Voice
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Members vote on major decisions
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-orange-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      No Hidden Fees
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      All costs are transparent and agreed upon
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Trust Statement */}
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-center text-white">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Built on Trust, Powered by Community
+            </h3>
+            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
+              Every rule exists to protect members and ensure fairness. We
+              believe in complete transparency because your trust is our
+              foundation.
             </p>
           </div>
         </div>
@@ -1332,9 +1591,9 @@ export default function Home() {
                 href="https://app.menodao.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full py-4 bg-[#22C55E] hover:bg-green-600 text-white text-lg font-bold rounded-xl text-center transition-all hover:scale-105 shadow-lg"
+                className="block w-full py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl text-center transition-all hover:scale-105 shadow-lg"
               >
-                Join MenoDAO
+                Secure My Spot
               </a>
               <p className="text-center text-sm text-gray-600 mt-4">
                 ✓ Instant activation • ✓ Pay via M-Pesa
@@ -1438,7 +1697,7 @@ export default function Home() {
               href="https://app.menodao.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 md:mt-0 px-6 py-3 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg"
+              className="mt-4 md:mt-0 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg"
             >
               Launch App
             </a>
@@ -1447,14 +1706,18 @@ export default function Home() {
           {/* Social Icons */}
           <div className="flex items-center justify-center md:justify-start space-x-6 mb-8 md:mb-12">
             <a
-              href="#"
+              href="https://wa.me/254743178950"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors duration-200"
               aria-label="WhatsApp"
             >
               <MessageCircle className="h-5 w-5 text-white" />
             </a>
             <a
-              href="#"
+              href="https://tiktok.com/@yourfavdrpapi"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors duration-200"
               aria-label="TikTok"
             >
@@ -1467,7 +1730,9 @@ export default function Home() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://instagram.com/menodao"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors duration-200"
               aria-label="Instagram"
             >
