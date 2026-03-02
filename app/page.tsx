@@ -617,12 +617,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
             <div className="flex items-center gap-3">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">M</span>
-              </div>
-              <div>
-                <p className="text-sm text-gray-600">Pay Securely With</p>
-                <p className="text-2xl font-bold text-green-600">M-PESA</p>
+              <div className="relative w-48 h-20">
+                <Image
+                  src="/mpesa-logo.svg"
+                  alt="Lipa na M-PESA Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
             <div className="hidden md:block w-px h-12 bg-green-300"></div>
