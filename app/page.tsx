@@ -261,19 +261,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* FOMO Urgency Banner */}
-      <div className="fixed top-0 left-0 right-0 z-[100] bg-red-600 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4 text-center">
-          <p className="text-xs sm:text-sm font-bold flex items-center justify-center gap-2">
-            <Activity className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-            <span>EID PILOT LAUNCH: ONLY 100 SPOTS LEFT</span>
-          </p>
-        </div>
-      </div>
-
       {/* Navigation Bar - Transparent with backdrop blur */}
       <nav
-        className={`fixed top-[44px] sm:top-[52px] left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-white/95 backdrop-blur-md shadow-md"
             : "bg-white/10 backdrop-blur-sm"
