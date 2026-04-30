@@ -148,9 +148,6 @@ export default function Home() {
   const carouselSlides: Array<{
     image: string;
     bgGradient: string;
-    title: string;
-    subtitle: string;
-    description: string;
   }> = Array.from({ length: 11 }, (_, index) => {
     const slideNumber = index + 1;
     const gradients = [
@@ -166,45 +163,10 @@ export default function Home() {
       "from-cyan-900 via-blue-900 to-indigo-900",
       "from-green-900 via-emerald-900 to-teal-900",
     ];
-
-    // Default content for first 3 slides, generic for others
-    if (slideNumber === 1) {
-      return {
-        image: `/carousel/slide-${slideNumber}.jpg`,
-        bgGradient: gradients[0],
-        title: "Quality Dental Care.",
-        subtitle: "Powered by Community.",
-        description:
-          "Join the first Community Health Membership that protects your smile and your pocket.",
-      };
-    } else if (slideNumber === 2) {
-      return {
-        image: `/carousel/slide-${slideNumber}.jpg`,
-        bgGradient: gradients[1],
-        title: "Affordable Health for Everyone",
-        subtitle: "No Surprise Bills. Just Fair Care.",
-        description:
-          "From KES 350/month, access quality dental care without the financial stress.",
-      };
-    } else if (slideNumber === 3) {
-      return {
-        image: `/carousel/slide-${slideNumber}.jpg`,
-        bgGradient: gradients[2],
-        title: "Community-Led, Member-Owned",
-        subtitle: "Transparent. Secure. Trusted.",
-        description:
-          "Every shilling is accounted for. Your health data stays private. You're in control.",
-      };
-    } else {
-      // Generic content for additional slides
-      return {
-        image: `/carousel/slide-${slideNumber}.jpg`,
-        bgGradient: gradients[(slideNumber - 1) % gradients.length],
-        title: "MenoDAO",
-        subtitle: "Community Dental Care",
-        description: "Building healthier communities, one smile at a time.",
-      };
-    }
+    return {
+      image: `/carousel/slide-${slideNumber}.jpg`,
+      bgGradient: gradients[(slideNumber - 1) % gradients.length],
+    };
   });
 
   // Auto-play carousel
