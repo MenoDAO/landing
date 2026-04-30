@@ -369,9 +369,6 @@ export default function Home() {
                 >
                   {t("nav.contact")}
                 </a>
-                <LanguageSwitcher
-                  className={scrolled ? "border-gray-400 text-gray-700" : ""}
-                />
                 <a
                   href="https://app.menodao.org"
                   target="_blank"
@@ -465,7 +462,6 @@ export default function Home() {
                   >
                     {t("nav.contact")}
                   </a>
-                  <LanguageSwitcher />
                   <a
                     href="https://app.menodao.org"
                     target="_blank"
@@ -533,13 +529,13 @@ export default function Home() {
                       {/* Headline with Text Shadow for Legibility */}
                       <div className="space-y-2 md:space-y-4">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight font-outfit text-white drop-shadow-2xl [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
-                          {heroContent.headline}
+                          {t("hero.headline")}
                         </h1>
                       </div>
 
                       {/* Simplified Value Proposition */}
                       <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)] max-w-2xl mx-auto">
-                        {heroContent.subheadline}
+                        {t("hero.subheadline")}
                       </p>
 
                       {/* Trust Badges - Partner Clinics */}
@@ -568,7 +564,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                           className="w-full max-w-sm px-10 py-5 bg-green-600 hover:bg-green-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-green-500/50 hover:scale-105 text-center"
                         >
-                          {heroContent.ctaText}
+                          {t("hero.ctaText")}
                         </a>
                         <a
                           href="https://wa.me/254743178950"
@@ -1064,8 +1060,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-center text-lg font-bold text-gray-900 mt-8">
-                Save over <span className="text-emerald-600">KES 9,600</span> in
-                your first year!
+                {t("plans.savings.savingsMessage")}
               </p>
             </div>
 
@@ -1958,6 +1953,9 @@ export default function Home() {
                 </div>
               </div>
 
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <LanguageSwitcher className="border-gray-600 text-gray-300" />
+              </div>
               <p className="text-sm md:text-base text-gray-400 text-center">
                 {t("footer.copyright")}
               </p>

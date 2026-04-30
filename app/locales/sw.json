@@ -7,6 +7,9 @@
     "getStarted": "Anza Sasa"
   },
   "hero": {
+    "headline": "Pata Bima ya Meno kwa Bob 350 tu/Mwezi",
+    "subheadline": "Ukaguzi, usafi na huduma ya dharura katika kliniki zinazoaminika Mombasa & Kwale",
+    "ctaText": "Jiunge kwa KES 350/mwezi",
     "servingBadge": "✓ TUNAHUDUMIA MOMBASA & KWALE",
     "partneredClinics": "Tumeshirikiana na kliniki {{count}}+",
     "joinMembers": "Jiunge na wanachama 500+",
