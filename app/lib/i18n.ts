@@ -29,13 +29,27 @@ export function detectLocale(navigatorLanguage?: string): Locale {
   return "en";
 }
 
+/**
+ * Read the stored locale synchronously at module load time so i18n
+ * initialises with the correct language on the very first render.
+ * Falls back to 'en' on the server (no window/localStorage).
+ */
+function getInitialLocale(): Locale {
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
+    if (stored === "sw" || stored === "en") return stored;
+    if (navigator.language.startsWith("sw")) return "sw";
+  }
+  return "en";
+}
+
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     resources: {
       en: { translation: en },
       sw: { translation: sw },
     },
-    lng: "en",
+    lng: getInitialLocale(),
     fallbackLng: "en",
     interpolation: { escapeValue: false },
     saveMissing: true,

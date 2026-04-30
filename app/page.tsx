@@ -35,7 +35,7 @@ import {
   heroContent,
   companyInfo,
 } from "./data/content";
-import i18n, { detectLocale, useTranslation } from "./lib/i18n";
+import i18n, { useTranslation } from "./lib/i18n";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 
 // Gallery Image Component with Next.js Image optimization
@@ -86,12 +86,6 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-
-  // Detect and apply locale on mount — respect stored preference first
-  useEffect(() => {
-    const locale = detectLocale();
-    i18n.changeLanguage(locale);
-  }, []);
 
   // Prevent autoscroll on page load
   useEffect(() => {
