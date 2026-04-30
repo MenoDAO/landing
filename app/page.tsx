@@ -454,7 +454,7 @@ export default function Home() {
                 >
                   <Image
                     src={slide.image}
-                    alt={slide.title}
+                    alt={`Slide ${index + 1}`}
                     fill
                     sizes="100vw"
                     className="object-cover"
