@@ -1,0 +1,253 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "servingBadge": "✓ NOW SERVING MOMBASA & KWALE",
+    "partneredClinics": "Partnered with {{count}}+ clinics",
+    "joinMembers": "Join 500+ members",
+    "ctaSubtext": "Have questions? Chat with us on WhatsApp",
+    "trustMembers": "500+ Active Members",
+    "trustTransparent": "100% Transparent",
+    "trustOwned": "Community Owned"
+  },
+  "mpesa": {
+    "instantActivation": "Instant activation after payment",
+    "cancelAnytime": "Cancel anytime, no penalties"
+  },
+  "partnerClinics": {
+    "title": "Visit Our Partner Clinics",
+    "subtitle": "Get treated at trusted dental clinics across Mombasa & Kwale",
+    "noCardNeeded": "No paperwork needed - just show your MenoDAO membership card"
+  },
+  "ceo": {
+    "sectionTitle": "Why We Built MenoDAO",
+    "quote": "I built MenoDAO because I saw too many families choosing between dental care and putting food on the table. No one should have to make that choice. By pooling our resources as a community, we can all afford the care we deserve.",
+    "name": "Dr. Said Ruwa",
+    "title": "Founder & CEO, MenoDAO"
+  },
+  "plans": {
+    "title": "Choose Your Plan",
+    "subtitle": "All plans include M-Pesa payments, instant activation, and no surprise bills. Pick what works for your family.",
+    "mostPopular": "MOST POPULAR",
+    "bronze": {
+      "badge": "STARTER",
+      "name": "Bronze",
+      "price": "350",
+      "perMonth": "/mo",
+      "bestFor": "Best for singles",
+      "feature1Title": "1 Checkup/Year",
+      "feature1Desc": "Catch problems early",
+      "feature2Title": "Basic Consultation",
+      "feature2Desc": "Talk to a dentist anytime",
+      "feature3Title": "Community Support",
+      "feature3Desc": "WhatsApp group access",
+      "cta": "Secure My Bronze Spot"
+    },
+    "silver": {
+      "badge": "RECOMMENDED",
+      "name": "Silver",
+      "price": "550",
+      "perMonth": "/mo",
+      "bestFor": "Best for families",
+      "feature1Title": "2 Checkups/Year",
+      "feature1Desc": "Stay ahead of problems",
+      "feature2Title": "Basic Cleaning",
+      "feature2Desc": "Keep teeth healthy",
+      "feature3Title": "Pain Relief",
+      "feature3Desc": "Emergency consultation",
+      "feature4Title": "Priority Support",
+      "feature4Desc": "Faster appointments",
+      "cta": "Secure My Silver Spot"
+    },
+    "gold": {
+      "badge": "PREMIUM",
+      "name": "Gold",
+      "price": "700",
+      "perMonth": "/mo",
+      "bestFor": "Complete protection",
+      "feature1Title": "Unlimited Checkups",
+      "feature1Desc": "Come as often as needed",
+      "feature2Title": "Full Cleaning",
+      "feature2Desc": "Deep clean + polishing",
+      "feature3Title": "Priority Pain Relief",
+      "feature3Desc": "Same-day emergency care",
+      "feature4Title": "Filling Coverage",
+      "feature4Desc": "Emergency fillings included",
+      "cta": "Secure My Gold Spot"
+    },
+    "savings": {
+      "title": "Here's What You Save",
+      "withoutTitle": "Without MenoDAO",
+      "withTitle": "With MenoDAO Gold",
+      "toothache": "Toothache emergency:",
+      "filling": "Filling:",
+      "cleaning": "Cleaning:",
+      "checkup": "Checkup:",
+      "withoutTotal": "Total: KES 18,000+",
+      "withTotal": "Total: KES 700/month",
+      "withYearly": "That's KES 8,400/year",
+      "savingsMessage": "Save over <highlight>KES 9,600</highlight> in your first year!",
+      "included": "Included",
+      "unlimited": "Unlimited"
+    },
+    "notSure": "Not sure which plan is right for you?",
+    "chatWhatsApp": "Chat with Us on WhatsApp"
+  },
+  "whyMenodao": {
+    "title": "Why Kenyans Choose MenoDAO",
+    "subtitle": "We're changing how dental care works in Kenya. No more waiting until you're in pain to see a dentist.",
+    "card1Title": "Pay Small, Small",
+    "card1Desc": "Instead of paying KES 30,000 when you're in pain, you pay a little every month - like buying airtime. When you need care, it's already covered.",
+    "card1Highlight": "From just KES 350/month",
+    "card2Title": "Catch Problems Early",
+    "card2Desc": "Regular checkups mean we find small problems before they become big, expensive ones. You'll never lose a tooth unnecessarily.",
+    "card2Highlight": "Prevention saves money",
+    "card3Title": "Your Community, Your Rules",
+    "card3Desc": "This isn't a big insurance company. It's a cooperative owned by members like you. You have a say in how things work.",
+    "card3Highlight": "100% community owned",
+    "cta": "Secure Your Spot Today",
+    "ctaSubtext": "Takes less than 2 minutes to sign up"
+  },
+  "chamaRules": {
+    "badge": "Full Transparency",
+    "title": "Chama Rules (Full Transparency)",
+    "subtitle": "No hidden rules. No surprises. Here's exactly how MenoDAO operates.",
+    "coverageTitle": "When Coverage Starts",
+    "emergencyTitle": "Emergency Care: Starts in 14 Days",
+    "emergencyDesc": "Pain relief and urgent consultations covered",
+    "majorTitle": "Major Procedures: Starts in 60 Days",
+    "majorDesc": "Fillings, root canals, and advanced care",
+    "instantTitle": "Get Instant Coverage",
+    "upfrontTitle": "Pay 1 Year Upfront",
+    "upfrontDesc": "Start using all benefits immediately",
+    "zeroWaitTitle": "Zero Wait Time",
+    "zeroWaitDesc": "Access emergency and major care from day 1",
+    "moneyTitle": "Your Money is Safe",
+    "treasuryTitle": "Secure Digital Treasury",
+    "treasuryDesc": "Your contributions are tracked transparently",
+    "auditedTitle": "Audited & Transparent",
+    "auditedDesc": "Every shilling is accounted for and verifiable",
+    "memberOwnedTitle": "Member-Owned",
+    "voiceTitle": "You Have a Voice",
+    "voiceDesc": "Members vote on major decisions",
+    "noFeesTitle": "No Hidden Fees",
+    "noFeesDesc": "All costs are transparent and agreed upon",
+    "trustTitle": "Built on Trust, Powered by Community",
+    "trustDesc": "Every rule exists to protect members and ensure fairness. We believe in complete transparency because your trust is our foundation."
+  },
+  "technology": {
+    "badge": "TRANSPARENT TECHNOLOGY",
+    "title": "Your Data. Your Money. Secure.",
+    "ledgerTitle": "Transparent Ledger",
+    "ledgerDesc": "Every shilling contributed is accounted for using secure digital technology.",
+    "privacyTitle": "Data Privacy",
+    "privacyDesc": "Your medical records stay private between you and the doctor.",
+    "paymentsTitle": "Easy Payments",
+    "paymentsDesc": "Seamless integration with M-Pesa.",
+    "balanceLabel": "MenoDAO Balance",
+    "activeMember": "Active Member"
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "Building Healthier Communities, One Smile at a Time",
+    "desc1": "MenoDAO is a community-led dental cooperative that transforms how people access and pay for dental care in Kenya. We believe everyone deserves quality dental health without the financial burden.",
+    "desc2": "Founded on principles of transparency, affordability, and community ownership, we pool resources to make preventive and essential dental care accessible to all members.",
+    "founded": "Founded",
+    "communityOwned": "Community Owned",
+    "monthlyStart": "Monthly Start"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Comprehensive Dental Care Packages",
+    "subtitle": "Choose the plan that fits your needs. All packages include transparent pricing and community support.",
+    "recommended": "RECOMMENDED",
+    "bronze": {
+      "name": "Bronze",
+      "price": "KES 350",
+      "perMonth": "/mo",
+      "feature1": "1 Checkup per Year",
+      "feature2": "Basic Consultation",
+      "feature3": "Community Access"
+    },
+    "silver": {
+      "name": "Silver",
+      "price": "KES 550",
+      "perMonth": "/mo",
+      "feature1": "2 Checkups per Year",
+      "feature2": "Basic Cleaning",
+      "feature3": "Pain Relief Consultation",
+      "feature4": "Priority Support"
+    },
+    "gold": {
+      "name": "Gold",
+      "price": "KES 700",
+      "perMonth": "/mo",
+      "feature1": "Unlimited Checkups",
+      "feature2": "Priority Pain Relief",
+      "feature3": "Full Cleaning & Polishing",
+      "feature4": "Emergency Filling Coverage"
+    }
+  },
+  "testimonials": {
+    "badge": "Real Stories",
+    "title": "What Our Members Say",
+    "subtitle": "Join hundreds of Kenyans saving money on dental care",
+    "saved": "Saved KES {{amount}}",
+    "cta": "Join for KES 350/mo"
+  },
+  "gallery": {
+    "badge": "Gallery",
+    "title": "Our Community in Action",
+    "subtitle": "See how we're making dental care accessible to communities across Mombasa and Kwale.",
+    "imageAlt": "Gallery image {{number}}"
+  },
+  "contact": {
+    "badge": "Get Started",
+    "title": "Ready to Join?",
+    "subtitle": "Choose how you want to get started. Both options are quick and easy.",
+    "signUpTitle": "Sign Up Now",
+    "signUpDesc": "Create your account, choose your plan, and start getting care today. Takes less than 2 minutes.",
+    "signUpCta": "Secure My Spot",
+    "signUpNote": "✓ Instant activation • ✓ Pay via M-Pesa",
+    "whatsappTitle": "Join WhatsApp Community",
+    "whatsappDesc": "Have questions? Want to learn more? Join our WhatsApp group and chat with current members.",
+    "whatsappCta": "Join WhatsApp Group",
+    "whatsappNote": "✓ Ask questions • ✓ Meet members",
+    "whatsappLabel": "WhatsApp",
+    "whatsappPhone": "+254 743 178 950",
+    "whatsappQuick": "Quick responses",
+    "locationLabel": "Location",
+    "locationCity": "Mombasa & Kwale",
+    "locationServing": "Now serving",
+    "emailLabel": "Email",
+    "emailAddress": "info@menodao.org",
+    "emailInquiries": "General inquiries"
+  },
+  "footer": {
+    "tagline": "Community-led dental care for Kenya.",
+    "launchApp": "Launch App",
+    "registeredCooperative": "Registered Cooperative",
+    "officeLocation": "Office Location",
+    "contactUs": "Contact Us",
+    "copyright": "© 2025 MenoDAO Cooperative. All rights reserved."
+  },
+  "howItWorks": {
+    "badge": "Simple Process",
+    "title": "Your Journey to",
+    "titleHighlight": "Care-Free Health",
+    "subtitle": "We removed the paperwork, the waiting lines, and the stress. Here is how you join the family.",
+    "step1Title": "1. Sign Up on the App",
+    "step1Desc": "Visit app.menodao.org and sign up with your phone number. Choose your preferred membership package (Bronze, Silver, or Gold).",
+    "step2Title": "2. Make Your Payment",
+    "step2Desc": "Complete your registration by paying your monthly contribution via M-Pesa. Your account activates instantly once payment is confirmed.",
+    "step3Title": "3. Access Quality Care",
+    "step3Desc": "Visit any partner clinic. Show your digital membership card. Get treated according to your package benefits.",
+    "step3Highlight": "No surprise bills. Just care.",
+    "getStarted": "Get Started"
+  }
+}

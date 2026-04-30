@@ -1,0 +1,253 @@
+{
+  "nav": {
+    "about": "Kuhusu",
+    "services": "Huduma",
+    "gallery": "Picha",
+    "contact": "Wasiliana",
+    "getStarted": "Anza Sasa"
+  },
+  "hero": {
+    "servingBadge": "✓ TUNAHUDUMIA MOMBASA & KWALE",
+    "partneredClinics": "Tumeshirikiana na kliniki {{count}}+",
+    "joinMembers": "Jiunge na wanachama 500+",
+    "ctaSubtext": "Una maswali? Piga gumzo nasi WhatsApp",
+    "trustMembers": "Wanachama 500+ Wanaotumia",
+    "trustTransparent": "100% Uwazi",
+    "trustOwned": "Inamilikiwa na Jamii"
+  },
+  "mpesa": {
+    "instantActivation": "Uanzishaji wa haraka baada ya malipo",
+    "cancelAnytime": "Futa wakati wowote, bila adhabu"
+  },
+  "partnerClinics": {
+    "title": "Tembelea Kliniki Zetu Washirika",
+    "subtitle": "Pata matibabu katika kliniki za meno zinazoaminika kote Mombasa & Kwale",
+    "noCardNeeded": "Hakuna karatasi zinazohitajika - onyesha tu kadi yako ya uanachama wa MenoDAO"
+  },
+  "ceo": {
+    "sectionTitle": "Kwa Nini Tulijenga MenoDAO",
+    "quote": "Nilijenga MenoDAO kwa sababu niliona familia nyingi sana zikichagua kati ya huduma ya meno na kuweka chakula mezani. Hakuna mtu anayepaswa kufanya chaguo hilo. Kwa kuchanganya rasilimali zetu kama jamii, tunaweza sote kumudu huduma tunayostahili.",
+    "name": "Dkt. Said Ruwa",
+    "title": "Mwanzilishi & Mkurugenzi Mtendaji, MenoDAO"
+  },
+  "plans": {
+    "title": "Chagua Mpango Wako",
+    "subtitle": "Mipango yote inajumuisha malipo ya M-Pesa, uanzishaji wa haraka, na bila bili za mshangao. Chagua inayofaa familia yako.",
+    "mostPopular": "MAARUFU ZAIDI",
+    "bronze": {
+      "badge": "MWANZO",
+      "name": "Shaba",
+      "price": "350",
+      "perMonth": "/mwezi",
+      "bestFor": "Bora kwa watu mmoja mmoja",
+      "feature1Title": "Ukaguzi 1/Mwaka",
+      "feature1Desc": "Gundua matatizo mapema",
+      "feature2Title": "Ushauri wa Msingi",
+      "feature2Desc": "Zungumza na daktari wa meno wakati wowote",
+      "feature3Title": "Msaada wa Jamii",
+      "feature3Desc": "Ufikiaji wa kikundi cha WhatsApp",
+      "cta": "Hifadhi Nafasi Yangu ya Shaba"
+    },
+    "silver": {
+      "badge": "INAYOPENDEKEZWA",
+      "name": "Fedha",
+      "price": "550",
+      "perMonth": "/mwezi",
+      "bestFor": "Bora kwa familia",
+      "feature1Title": "Ukaguzi 2/Mwaka",
+      "feature1Desc": "Kaa mbele ya matatizo",
+      "feature2Title": "Usafi wa Msingi",
+      "feature2Desc": "Weka meno yenye afya",
+      "feature3Title": "Kupunguza Maumivu",
+      "feature3Desc": "Ushauri wa dharura",
+      "feature4Title": "Msaada wa Kipaumbele",
+      "feature4Desc": "Miadi ya haraka zaidi",
+      "cta": "Hifadhi Nafasi Yangu ya Fedha"
+    },
+    "gold": {
+      "badge": "PREMIUM",
+      "name": "Dhahabu",
+      "price": "700",
+      "perMonth": "/mwezi",
+      "bestFor": "Ulinzi kamili",
+      "feature1Title": "Ukaguzi Usio na Kikomo",
+      "feature1Desc": "Kuja mara nyingi unavyohitaji",
+      "feature2Title": "Usafi Kamili",
+      "feature2Desc": "Usafi wa kina + kung'aa",
+      "feature3Title": "Kupunguza Maumivu kwa Kipaumbele",
+      "feature3Desc": "Huduma ya dharura siku hiyo hiyo",
+      "feature4Title": "Kufunika Kujaza",
+      "feature4Desc": "Kujaza kwa dharura kumejumuishwa",
+      "cta": "Hifadhi Nafasi Yangu ya Dhahabu"
+    },
+    "savings": {
+      "title": "Hapa Ndipo Unavyookoa",
+      "withoutTitle": "Bila MenoDAO",
+      "withTitle": "Na MenoDAO Dhahabu",
+      "toothache": "Dharura ya maumivu ya jino:",
+      "filling": "Kujaza:",
+      "cleaning": "Usafi:",
+      "checkup": "Ukaguzi:",
+      "withoutTotal": "Jumla: KES 18,000+",
+      "withTotal": "Jumla: KES 700/mwezi",
+      "withYearly": "Hiyo ni KES 8,400/mwaka",
+      "savingsMessage": "Okoa zaidi ya <highlight>KES 9,600</highlight> katika mwaka wako wa kwanza!",
+      "included": "Imejumuishwa",
+      "unlimited": "Bila Kikomo"
+    },
+    "notSure": "Hujui mpango upi unakufaa?",
+    "chatWhatsApp": "Piga Gumzo Nasi WhatsApp"
+  },
+  "whyMenodao": {
+    "title": "Kwa Nini Wakenya Wanachagua MenoDAO",
+    "subtitle": "Tunabadilisha jinsi huduma ya meno inavyofanya kazi Kenya. Hakuna tena kusubiri hadi uwe na maumivu kuona daktari wa meno.",
+    "card1Title": "Lipa Kidogo Kidogo",
+    "card1Desc": "Badala ya kulipa KES 30,000 unapokuwa na maumivu, unalipa kidogo kila mwezi - kama kununua airtime. Unapohitaji huduma, tayari imefunikwa.",
+    "card1Highlight": "Kuanzia KES 350/mwezi tu",
+    "card2Title": "Gundua Matatizo Mapema",
+    "card2Desc": "Ukaguzi wa mara kwa mara unamaanisha tunapata matatizo madogo kabla hayajawa makubwa, ya gharama. Hutapoteza jino bila sababu.",
+    "card2Highlight": "Kuzuia kuokoa pesa",
+    "card3Title": "Jamii Yako, Sheria Zako",
+    "card3Desc": "Hii si kampuni kubwa ya bima. Ni ushirika unaomilikiwa na wanachama kama wewe. Una sauti katika jinsi mambo yanavyofanya kazi.",
+    "card3Highlight": "100% inamilikiwa na jamii",
+    "cta": "Hifadhi Nafasi Yako Leo",
+    "ctaSubtext": "Inachukua chini ya dakika 2 kujiandikisha"
+  },
+  "chamaRules": {
+    "badge": "Uwazi Kamili",
+    "title": "Sheria za Chama (Uwazi Kamili)",
+    "subtitle": "Hakuna sheria zilizofichwa. Hakuna mshangao. Hapa ndivyo MenoDAO inavyofanya kazi.",
+    "coverageTitle": "Ulinzi Unaanza Lini",
+    "emergencyTitle": "Huduma ya Dharura: Inaanza Siku 14",
+    "emergencyDesc": "Kupunguza maumivu na ushauri wa haraka umefunikwa",
+    "majorTitle": "Taratibu Kubwa: Inaanza Siku 60",
+    "majorDesc": "Kujaza, matibabu ya mzizi, na huduma ya hali ya juu",
+    "instantTitle": "Pata Ulinzi wa Haraka",
+    "upfrontTitle": "Lipa Mwaka 1 Mapema",
+    "upfrontDesc": "Anza kutumia faida zote mara moja",
+    "zeroWaitTitle": "Hakuna Muda wa Kusubiri",
+    "zeroWaitDesc": "Fikia huduma ya dharura na kubwa kuanzia siku ya 1",
+    "moneyTitle": "Pesa Yako Iko Salama",
+    "treasuryTitle": "Hazina Salama ya Kidijitali",
+    "treasuryDesc": "Michango yako inafuatiliwa kwa uwazi",
+    "auditedTitle": "Imekaguliwa & Uwazi",
+    "auditedDesc": "Kila shilingi inawajibika na inaweza kuthibitishwa",
+    "memberOwnedTitle": "Inamilikiwa na Wanachama",
+    "voiceTitle": "Una Sauti",
+    "voiceDesc": "Wanachama wanapiga kura kuhusu maamuzi makubwa",
+    "noFeesTitle": "Hakuna Ada Zilizofichwa",
+    "noFeesDesc": "Gharama zote ni wazi na zimekubaliana",
+    "trustTitle": "Imejengwa kwa Uaminifu, Inasukumwa na Jamii",
+    "trustDesc": "Kila sheria ipo kulinda wanachama na kuhakikisha usawa. Tunaamini katika uwazi kamili kwa sababu uaminifu wako ni msingi wetu."
+  },
+  "technology": {
+    "badge": "TEKNOLOJIA YA UWAZI",
+    "title": "Data Yako. Pesa Yako. Salama.",
+    "ledgerTitle": "Daftari la Uwazi",
+    "ledgerDesc": "Kila shilingi iliyochangiwa inawajibika kwa kutumia teknolojia salama ya kidijitali.",
+    "privacyTitle": "Faragha ya Data",
+    "privacyDesc": "Rekodi zako za matibabu zinabaki za siri kati yako na daktari.",
+    "paymentsTitle": "Malipo Rahisi",
+    "paymentsDesc": "Muunganiko laini na M-Pesa.",
+    "balanceLabel": "Salio la MenoDAO",
+    "activeMember": "Mwanachama Anayetumia"
+  },
+  "about": {
+    "badge": "Kuhusu Sisi",
+    "title": "Kujenga Jamii Zenye Afya, Tabasamu Moja kwa Wakati",
+    "desc1": "MenoDAO ni ushirika wa meno unaoongozwa na jamii ambao unabadilisha jinsi watu wanavyopata na kulipa huduma ya meno Kenya. Tunaamini kila mtu anastahili afya bora ya meno bila mzigo wa kifedha.",
+    "desc2": "Ulianzishwa kwa kanuni za uwazi, uwezo wa kumudu, na umiliki wa jamii, tunachanganya rasilimali ili kufanya huduma ya kuzuia na ya msingi ya meno ipatikane kwa wanachama wote.",
+    "founded": "Ilianzishwa",
+    "communityOwned": "Inamilikiwa na Jamii",
+    "monthlyStart": "Mwanzo wa Kila Mwezi"
+  },
+  "services": {
+    "badge": "Huduma Zetu",
+    "title": "Vifurushi vya Huduma ya Meno Kamili",
+    "subtitle": "Chagua mpango unaofaa mahitaji yako. Vifurushi vyote vinajumuisha bei wazi na msaada wa jamii.",
+    "recommended": "INAYOPENDEKEZWA",
+    "bronze": {
+      "name": "Shaba",
+      "price": "KES 350",
+      "perMonth": "/mwezi",
+      "feature1": "Ukaguzi 1 kwa Mwaka",
+      "feature2": "Ushauri wa Msingi",
+      "feature3": "Ufikiaji wa Jamii"
+    },
+    "silver": {
+      "name": "Fedha",
+      "price": "KES 550",
+      "perMonth": "/mwezi",
+      "feature1": "Ukaguzi 2 kwa Mwaka",
+      "feature2": "Usafi wa Msingi",
+      "feature3": "Ushauri wa Kupunguza Maumivu",
+      "feature4": "Msaada wa Kipaumbele"
+    },
+    "gold": {
+      "name": "Dhahabu",
+      "price": "KES 700",
+      "perMonth": "/mwezi",
+      "feature1": "Ukaguzi Usio na Kikomo",
+      "feature2": "Kupunguza Maumivu kwa Kipaumbele",
+      "feature3": "Usafi Kamili & Kung'aa",
+      "feature4": "Kufunika Kujaza kwa Dharura"
+    }
+  },
+  "testimonials": {
+    "badge": "Hadithi za Kweli",
+    "title": "Wanachama Wetu Wanasema Nini",
+    "subtitle": "Jiunge na mamia ya Wakenya wanaookoa pesa kwenye huduma ya meno",
+    "saved": "Aliokolea KES {{amount}}",
+    "cta": "Jiunge kwa KES 350/mwezi"
+  },
+  "gallery": {
+    "badge": "Picha",
+    "title": "Jamii Yetu Ikifanya Kazi",
+    "subtitle": "Angalia jinsi tunavyofanya huduma ya meno ipatikane kwa jamii kote Mombasa na Kwale.",
+    "imageAlt": "Picha ya {{number}}"
+  },
+  "contact": {
+    "badge": "Anza Sasa",
+    "title": "Uko Tayari Kujiunga?",
+    "subtitle": "Chagua jinsi unavyotaka kuanza. Chaguzi zote mbili ni za haraka na rahisi.",
+    "signUpTitle": "Jiandikishe Sasa",
+    "signUpDesc": "Unda akaunti yako, chagua mpango wako, na anza kupata huduma leo. Inachukua chini ya dakika 2.",
+    "signUpCta": "Hifadhi Nafasi Yangu",
+    "signUpNote": "✓ Uanzishaji wa haraka • ✓ Lipa kupitia M-Pesa",
+    "whatsappTitle": "Jiunge na Jamii ya WhatsApp",
+    "whatsappDesc": "Una maswali? Unataka kujifunza zaidi? Jiunge na kikundi chetu cha WhatsApp na uzungumze na wanachama wa sasa.",
+    "whatsappCta": "Jiunge na Kikundi cha WhatsApp",
+    "whatsappNote": "✓ Uliza maswali • ✓ Kutana na wanachama",
+    "whatsappLabel": "WhatsApp",
+    "whatsappPhone": "+254 743 178 950",
+    "whatsappQuick": "Majibu ya haraka",
+    "locationLabel": "Mahali",
+    "locationCity": "Mombasa & Kwale",
+    "locationServing": "Tunahudumia sasa",
+    "emailLabel": "Barua pepe",
+    "emailAddress": "info@menodao.org",
+    "emailInquiries": "Maswali ya jumla"
+  },
+  "footer": {
+    "tagline": "Huduma ya meno inayoongozwa na jamii kwa Kenya.",
+    "launchApp": "Fungua Programu",
+    "registeredCooperative": "Ushirika Uliosajiliwa",
+    "officeLocation": "Mahali pa Ofisi",
+    "contactUs": "Wasiliana Nasi",
+    "copyright": "© 2025 MenoDAO Cooperative. Haki zote zimehifadhiwa."
+  },
+  "howItWorks": {
+    "badge": "Mchakato Rahisi",
+    "title": "Safari Yako Kwenda",
+    "titleHighlight": "Afya Bila Wasiwasi",
+    "subtitle": "Tuliondoa karatasi, foleni za kusubiri, na msongo. Hapa ndivyo unavyojiunga na familia.",
+    "step1Title": "1. Jiandikishe kwenye Programu",
+    "step1Desc": "Tembelea app.menodao.org na ujiandikishe na nambari yako ya simu. Chagua kifurushi chako cha uanachama unachopenda (Shaba, Fedha, au Dhahabu).",
+    "step2Title": "2. Fanya Malipo Yako",
+    "step2Desc": "Kamilisha usajili wako kwa kulipa mchango wako wa kila mwezi kupitia M-Pesa. Akaunti yako inawashwa mara moja malipo yakithibitishwa.",
+    "step3Title": "3. Pata Huduma Bora",
+    "step3Desc": "Tembelea kliniki yoyote mshirika. Onyesha kadi yako ya uanachama wa kidijitali. Pata matibabu kulingana na faida za kifurushi chako.",
+    "step3Highlight": "Hakuna bili za mshangao. Huduma tu.",
+    "getStarted": "Anza Sasa"
+  }
+}
