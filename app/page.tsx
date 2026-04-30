@@ -87,9 +87,9 @@ export default function Home() {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  // Detect and apply locale on mount
+  // Detect and apply locale on mount — respect stored preference first
   useEffect(() => {
-    const locale = detectLocale(navigator.language);
+    const locale = detectLocale();
     i18n.changeLanguage(locale);
   }, []);
 

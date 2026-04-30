@@ -38,7 +38,7 @@ export default function LanguageSwitcher({
     <select
       value={currentLocale}
       onChange={(e) => handleChange(e.target.value as Locale)}
-      className={`text-sm bg-transparent border border-white/30 rounded px-2 py-1 cursor-pointer text-white focus:outline-none focus:ring-2 focus:ring-white/50 ${className}`}
+      className={`text-sm bg-transparent border rounded px-2 py-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 ${className}`}
       aria-label="Select language"
     >
       <option value="en" className="text-gray-900">
