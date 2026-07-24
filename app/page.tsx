@@ -26,7 +26,7 @@ import {
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { I18nextProvider } from "react-i18next";
+import { I18nextProvider, Trans } from "react-i18next";
 import {
   partnerClinics,
   testimonials,
@@ -1120,7 +1120,14 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-center text-lg font-bold text-gray-900 mt-8">
-                  {t("plans.savings.savingsMessage")}
+                  <Trans
+                    i18nKey="plans.savings.savingsMessage"
+                    components={{
+                      highlight: (
+                        <span className="text-emerald-600" />
+                      ),
+                    }}
+                  />
                 </p>
               </div>
 
