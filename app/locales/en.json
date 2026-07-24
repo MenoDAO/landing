@@ -2,14 +2,17 @@
   "nav": {
     "about": "About",
     "services": "Services",
+    "howItWorks": "How It Works",
     "gallery": "Gallery",
     "contact": "Contact",
+    "compliance": "Compliance",
     "getStarted": "Get Started"
   },
   "hero": {
-    "headline": "Get Dental Cover for Just 350 Bob/Month",
-    "subheadline": "Checkups, cleanings & emergency care at trusted clinics in Mombasa & Kwale",
-    "ctaText": "Join for KES 350/mo",
+    "headline": "Affordable Dental Care, Powered by Community",
+    "subheadline": "MenoDAO helps individuals and families access essential dental treatment by pooling contributions and ensuring transparent, accountable payments to trusted clinics.",
+    "ctaText": "Contribute Now",
+    "ctaSecondary": "Get Treatment Support",
     "servingBadge": "✓ NOW SERVING MOMBASA & KWALE",
     "partneredClinics": "Partnered with {{count}}+ clinics",
     "joinMembers": "Join 500+ members",
@@ -131,34 +134,42 @@
     "zeroWaitTitle": "Zero Wait Time",
     "zeroWaitDesc": "Access emergency and major care from day 1",
     "moneyTitle": "Your Money is Safe",
-    "treasuryTitle": "Secure Digital Treasury",
-    "treasuryDesc": "Your contributions are tracked transparently",
+    "treasuryTitle": "Member Contributions Held Safely",
+    "treasuryDesc": "Your contributions are tracked in our records and available to members",
     "auditedTitle": "Audited & Transparent",
-    "auditedDesc": "Every shilling is accounted for and verifiable",
+    "auditedDesc": "Every shilling is accounted for and subject to cooperative audit and member reporting",
     "memberOwnedTitle": "Member-Owned",
     "voiceTitle": "You Have a Voice",
-    "voiceDesc": "Members vote on major decisions",
+    "voiceDesc": "Members help set priorities through cooperative processes",
     "noFeesTitle": "No Hidden Fees",
     "noFeesDesc": "All costs are transparent and agreed upon",
     "trustTitle": "Built on Trust, Powered by Community",
-    "trustDesc": "Every rule exists to protect members and ensure fairness. We believe in complete transparency because your trust is our foundation."
+    "trustDesc": "Every contribution and disbursement is recorded and tracked to ensure full accountability. Our system provides clear visibility into how funds are used."
   },
   "technology": {
-    "badge": "TRANSPARENT TECHNOLOGY",
+    "badge": "TRANSPARENCY",
     "title": "Your Data. Your Money. Secure.",
-    "ledgerTitle": "Transparent Ledger",
-    "ledgerDesc": "Every shilling contributed is accounted for using secure digital technology.",
+    "ledgerTitle": "Full Accountability",
+    "ledgerDesc": "Every contribution and disbursement is recorded and tracked to ensure full accountability. Our system provides clear visibility into how funds are used.",
     "privacyTitle": "Data Privacy",
     "privacyDesc": "Your medical records stay private between you and the doctor.",
     "paymentsTitle": "Easy Payments",
-    "paymentsDesc": "Seamless integration with M-Pesa.",
-    "balanceLabel": "MenoDAO Balance",
+    "paymentsDesc": "Seamless integration with M-Pesa and licensed mobile money providers.",
+    "balanceLabel": "Contribution Balance",
     "activeMember": "Active Member"
+  },
+  "paymentsCompliance": {
+    "badge": "Payments & Compliance",
+    "title": "Payments & Compliance",
+    "body1": "All payments on MenoDAO are processed in Kenyan Shillings (KES) through licensed mobile money providers.",
+    "body2": "MenoDAO does not process, support, or facilitate cryptocurrency or digital asset transactions.",
+    "body3": "We are committed to operating in full compliance with applicable financial regulations in Kenya.",
+    "readMore": "Read full compliance statement"
   },
   "about": {
     "badge": "About Us",
     "title": "Building Healthier Communities, One Smile at a Time",
-    "desc1": "MenoDAO is a community-led dental cooperative that transforms how people access and pay for dental care in Kenya. We believe everyone deserves quality dental health without the financial burden.",
+    "desc1": "MenoDAO is a community-driven healthcare financing platform that helps individuals access affordable dental care by pooling contributions and facilitating transparent payments to verified clinics.",
     "desc2": "Founded on principles of transparency, affordability, and community ownership, we pool resources to make preventive and essential dental care accessible to all members.",
     "founded": "Founded",
     "communityOwned": "Community Owned",
@@ -232,25 +243,34 @@
     "emailInquiries": "General inquiries"
   },
   "footer": {
-    "tagline": "Community-led dental care for Kenya.",
+    "tagline": "Community-powered dental care platform in Kenya.",
     "launchApp": "Launch App",
     "registeredCooperative": "Registered Cooperative",
     "officeLocation": "Office Location",
     "contactUs": "Contact Us",
-    "copyright": "© 2025 MenoDAO Cooperative. All rights reserved."
+    "compliance": "Compliance",
+    "copyright": "© 2025 MenoDAO. All rights reserved."
   },
   "howItWorks": {
-    "badge": "Simple Process",
-    "title": "Your Journey to",
-    "titleHighlight": "Care-Free Health",
-    "subtitle": "We removed the paperwork, the waiting lines, and the stress. Here is how you join the family.",
-    "step1Title": "1. Sign Up on the App",
-    "step1Desc": "Visit app.menodao.org and sign up with your phone number. Choose your preferred membership package (Bronze, Silver, or Gold).",
-    "step2Title": "2. Make Your Payment",
-    "step2Desc": "Complete your registration by paying your monthly contribution via M-Pesa. Your account activates instantly once payment is confirmed.",
-    "step3Title": "3. Access Quality Care",
-    "step3Desc": "Visit any partner clinic. Show your digital membership card. Get treated according to your package benefits.",
-    "step3Highlight": "No surprise bills. Just care.",
-    "getStarted": "Get Started"
+    "badge": "How It Works",
+    "title": "How",
+    "titleHighlight": "MenoDAO Works",
+    "subtitle": "A simple path from contribution to dental care at trusted clinics.",
+    "step1Title": "1. Contribute",
+    "step1Desc": "Members make contributions using secure mobile payment options.",
+    "step2Title": "2. Get Support",
+    "step2Desc": "Funds are allocated to approved dental treatments based on verified needs.",
+    "step3Title": "3. Transparent Disbursement",
+    "step3Desc": "Payments are made directly to partner clinics with full visibility for contributors.",
+    "step3Highlight": "Accountable payments. Real care.",
+    "getStarted": "Contribute Now"
+  },
+  "compliance": {
+    "title": "Compliance",
+    "intro": "MenoDAO operates as a healthcare support platform that facilitates contributions and payments for dental care services.",
+    "kes": "All transactions are conducted in Kenyan Shillings (KES) through licensed mobile money providers.",
+    "noCrypto": "MenoDAO does not engage in, support, or facilitate cryptocurrency or digital asset transactions.",
+    "commitment": "We are committed to maintaining compliance with all applicable financial and regulatory requirements in Kenya.",
+    "backHome": "Back to home"
   }
 }

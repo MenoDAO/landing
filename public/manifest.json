@@ -1,7 +1,7 @@
 {
   "name": "MenoDAO - Affordable Dental Care",
   "short_name": "MenoDAO",
-  "description": "Kenya's first community-led dental care SACCO. Affordable dental treatment for all.",
+  "description": "Community-powered dental care platform in Kenya. Affordable treatment through pooled contributions.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

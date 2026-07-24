@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Wallet,
   Syringe,
   Users,
   CheckCircle2,
@@ -11,28 +10,26 @@ import {
   User,
   Phone,
   MapPin,
-  Coins,
   Star,
   X,
   UserPlus,
-  Smartphone,
   Heart,
-  Briefcase,
   Image as ImageIcon,
   Mail,
-  Activity,
   Clock,
   Shield,
   Zap,
   Building2,
+  Banknote,
+  CreditCard,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { I18nextProvider } from "react-i18next";
 import {
   partnerClinics,
   testimonials,
-  heroContent,
   companyInfo,
 } from "./data/content";
 import i18n, { useTranslation } from "./lib/i18n";
@@ -81,7 +78,6 @@ function GalleryImage({ index }: { index: number }) {
 export default function Home() {
   const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
-  const [isHowItWorksOpen, setIsHowItWorksOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
@@ -124,32 +120,6 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (isHowItWorksOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isHowItWorksOpen]);
-
-  useEffect(() => {
-    if (isHowItWorksOpen) {
-      // Scroll to top of modal when it opens
-      const timer = setTimeout(() => {
-        const modalContainer = document.querySelector(
-          "[data-how-it-works-modal]",
-        );
-        if (modalContainer) {
-          modalContainer.scrollTop = 0;
-        }
-      }, 100);
-      return () => clearTimeout(timer);
-    }
-  }, [isHowItWorksOpen]);
 
   // Dynamically generate carousel slides from available images (up to 11)
   const carouselSlides: Array<{
@@ -314,6 +284,20 @@ export default function Home() {
                     {t("nav.services")}
                   </a>
                   <a
+                    href="#how-it-works"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection("how-it-works");
+                    }}
+                    className={`transition-colors duration-200 font-medium ${
+                      scrolled
+                        ? "text-gray-700 hover:text-blue-600"
+                        : "text-white drop-shadow-lg [text-shadow:_1px_1px_3px_rgb(0_0_0_/_80%)] hover:text-blue-200"
+                    }`}
+                  >
+                    {t("nav.howItWorks")}
+                  </a>
+                  <a
                     href="#gallery"
                     onClick={(e) => {
                       e.preventDefault();
@@ -405,6 +389,20 @@ export default function Home() {
                       }`}
                     >
                       {t("nav.services")}
+                    </a>
+                    <a
+                      href="#how-it-works"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection("how-it-works");
+                      }}
+                      className={`transition-colors duration-200 font-medium py-2 ${
+                        scrolled
+                          ? "text-gray-700 hover:text-blue-600"
+                          : "text-white hover:text-blue-200"
+                      }`}
+                    >
+                      {t("nav.howItWorks")}
                     </a>
                     <a
                       href="#gallery"
@@ -530,25 +528,33 @@ export default function Home() {
                           </div>
                         </div>
 
-                        {/* Single CTA */}
-                        <div className="flex flex-col items-center justify-center gap-3 pt-6">
+                        {/* CTAs */}
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
                           <a
                             href="https://app.menodao.org"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full max-w-sm px-10 py-5 bg-green-600 hover:bg-green-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-green-500/50 hover:scale-105 text-center"
+                            className="w-full sm:w-auto max-w-sm px-10 py-5 bg-green-600 hover:bg-green-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-green-500/50 hover:scale-105 text-center"
                           >
                             {t("hero.ctaText")}
                           </a>
                           <a
-                            href="https://wa.me/254743178950"
+                            href="https://wa.me/254743178950?text=Hi%20MenoDAO%2C%20I%20need%20treatment%20support"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-white/80 hover:text-white text-sm underline"
+                            className="w-full sm:w-auto max-w-sm px-10 py-5 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/40 text-white text-lg font-bold rounded-xl transition-all duration-200 text-center"
                           >
-                            {t("hero.ctaSubtext")}
+                            {t("hero.ctaSecondary")}
                           </a>
                         </div>
+                        <a
+                          href="https://wa.me/254743178950"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white/80 hover:text-white text-sm underline"
+                        >
+                          {t("hero.ctaSubtext")}
+                        </a>
 
                         {/* Trust Indicators */}
                         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 pb-8 md:pb-4 md:pt-6 text-white/90 text-xs md:text-sm">
@@ -561,7 +567,7 @@ export default function Home() {
                             <span>{t("hero.trustTransparent")}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Wallet className="h-4 w-4" />
+                            <Shield className="h-4 w-4" />
                             <span>{t("hero.trustOwned")}</span>
                           </div>
                         </div>
@@ -617,6 +623,76 @@ export default function Home() {
                     {t("mpesa.cancelAnytime")}
                   </span>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* How It Works */}
+          <section id="how-it-works" className="py-20 md:py-28 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12 md:mb-16">
+                <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm inline-block">
+                  {t("howItWorks.badge")}
+                </span>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-4 leading-tight font-outfit">
+                  {t("howItWorks.title")}{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">
+                    {t("howItWorks.titleHighlight")}
+                  </span>
+                </h2>
+                <p className="text-slate-500 mt-6 text-lg max-w-2xl mx-auto">
+                  {t("howItWorks.subtitle")}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+                <div className="text-center md:text-left space-y-4">
+                  <div className="w-16 h-16 mx-auto md:mx-0 bg-white border-4 border-blue-500 rounded-full flex items-center justify-center shadow-xl shadow-blue-500/20">
+                    <Banknote className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 font-outfit">
+                    {t("howItWorks.step1Title")}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {t("howItWorks.step1Desc")}
+                  </p>
+                </div>
+                <div className="text-center md:text-left space-y-4">
+                  <div className="w-16 h-16 mx-auto md:mx-0 bg-white border-4 border-green-500 rounded-full flex items-center justify-center shadow-xl shadow-green-500/20">
+                    <Heart className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 font-outfit">
+                    {t("howItWorks.step2Title")}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {t("howItWorks.step2Desc")}
+                  </p>
+                </div>
+                <div className="text-center md:text-left space-y-4">
+                  <div className="w-16 h-16 mx-auto md:mx-0 bg-gradient-to-br from-blue-600 to-blue-800 border-4 border-white rounded-full flex items-center justify-center shadow-xl shadow-blue-900/30">
+                    <CreditCard className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 font-outfit">
+                    {t("howItWorks.step3Title")}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {t("howItWorks.step3Desc")}
+                  </p>
+                  <span className="text-green-600 font-bold bg-green-50 px-2 py-1 rounded-md inline-block">
+                    {t("howItWorks.step3Highlight")}
+                  </span>
+                </div>
+              </div>
+
+              <div className="text-center mt-12">
+                <a
+                  href="https://app.menodao.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
+                >
+                  {t("howItWorks.getStarted")}
+                </a>
               </div>
             </div>
           </section>
@@ -1081,7 +1157,7 @@ export default function Home() {
                 {/* Card 1: Pay Small, Small */}
                 <div className="bg-white rounded-xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
                   <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-6">
-                    <Wallet className="h-8 w-8 text-blue-600" />
+                    <Banknote className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 font-outfit">
                     {t("whyMenodao.card1Title")}
@@ -1413,6 +1489,34 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Payments & Compliance */}
+          <section
+            id="payments-compliance"
+            className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-emerald-50 border-y border-emerald-100"
+          >
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <span className="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider inline-block">
+                {t("paymentsCompliance.badge")}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 font-outfit">
+                {t("paymentsCompliance.title")}
+              </h2>
+              <div className="mt-8 space-y-4 text-lg text-gray-700 leading-relaxed">
+                <p>{t("paymentsCompliance.body1")}</p>
+                <p className="font-semibold text-gray-900">
+                  {t("paymentsCompliance.body2")}
+                </p>
+                <p>{t("paymentsCompliance.body3")}</p>
+              </div>
+              <Link
+                href="/compliance"
+                className="inline-block mt-8 text-emerald-700 hover:text-emerald-800 font-semibold underline underline-offset-4"
+              >
+                {t("paymentsCompliance.readMore")}
+              </Link>
+            </div>
+          </section>
+
           {/* About Section */}
           <section id="about" className="py-20 md:py-32 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1498,7 +1602,7 @@ export default function Home() {
                 <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                   <div className="text-center mb-6">
                     <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Coins className="h-8 w-8 text-amber-600" />
+                      <Star className="h-8 w-8 text-amber-600" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 font-outfit mb-2">
                       {t("services.bronze.name")}
@@ -1536,7 +1640,7 @@ export default function Home() {
                 <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-blue-200">
                   <div className="text-center mb-6">
                     <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Coins className="h-8 w-8 text-blue-600" />
+                      <Heart className="h-8 w-8 text-blue-600" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 font-outfit mb-2">
                       {t("services.silver.name")}
@@ -1941,7 +2045,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center gap-4 mb-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+                  <Link
+                    href="/compliance"
+                    className="text-sm text-gray-400 hover:text-white underline underline-offset-4"
+                  >
+                    {t("footer.compliance")}
+                  </Link>
                   <LanguageSwitcher className="border-gray-600 text-gray-300" />
                 </div>
                 <p className="text-sm md:text-base text-gray-400 text-center">
@@ -1950,134 +2060,6 @@ export default function Home() {
               </div>
             </div>
           </footer>
-
-          {/* How It Works Modal */}
-          {isHowItWorksOpen && (
-            <div
-              data-how-it-works-modal
-              className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-black bg-opacity-50 overflow-y-auto"
-              onClick={() => setIsHowItWorksOpen(false)}
-            >
-              <div
-                className="bg-slate-50 w-full max-w-5xl mt-8 md:mt-12 mb-8 md:mb-12 rounded-lg shadow-2xl relative overflow-hidden"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Background Decor (Subtle Swirls) */}
-                <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
-                  <div className="absolute top-10 right-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-                  <div className="absolute bottom-10 left-0 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-                </div>
-
-                <div className="relative z-10 p-8 md:p-12 pt-12 md:pt-16">
-                  {/* Close Button */}
-                  <button
-                    onClick={() => setIsHowItWorksOpen(false)}
-                    className="absolute top-8 right-8 md:top-12 md:right-12 text-gray-400 hover:text-gray-600 transition-colors z-20"
-                  >
-                    <X className="h-6 w-6" />
-                  </button>
-
-                  {/* Header */}
-                  <div className="text-center mb-12 md:mb-16">
-                    <span className="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm inline-block">
-                      {t("howItWorks.badge")}
-                    </span>
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-4 leading-tight font-outfit">
-                      {t("howItWorks.title")} <br />
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-500">
-                        {t("howItWorks.titleHighlight")}
-                      </span>
-                    </h2>
-                    <p className="text-slate-500 mt-6 text-lg max-w-2xl mx-auto">
-                      {t("howItWorks.subtitle")}
-                    </p>
-                  </div>
-
-                  {/* Steps */}
-                  <div className="relative">
-                    {/* Vertical Line */}
-                    <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-slate-200 rounded-full -translate-x-1/2 md:translate-x-0"></div>
-
-                    {/* Step 1 */}
-                    <div className="relative z-10 mb-12 md:mb-24">
-                      <div className="flex flex-col md:flex-row items-center">
-                        <div className="flex-1 w-full md:w-1/2 md:pr-12 md:text-right pl-20 md:pl-0">
-                          <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
-                            {t("howItWorks.step1Title")}
-                          </h3>
-                          <p className="text-slate-600 leading-relaxed">
-                            {t("howItWorks.step1Desc")}
-                          </p>
-                        </div>
-
-                        {/* Icon Circle */}
-                        <div className="absolute left-0 md:left-1/2 w-16 h-16 bg-white border-4 border-blue-500 rounded-full flex items-center justify-center -translate-x-0 md:-translate-x-1/2 shadow-xl shadow-blue-500/20 z-20">
-                          <UserPlus className="h-6 w-6 text-blue-600" />
-                        </div>
-                        <div className="flex-1 w-full md:w-1/2 md:pl-12 hidden md:block"></div>
-                      </div>
-                    </div>
-
-                    {/* Step 2 */}
-                    <div className="relative z-10 mb-12 md:mb-24">
-                      <div className="flex flex-col md:flex-row-reverse items-center">
-                        <div className="flex-1 w-full md:w-1/2 md:pl-12 md:text-left pl-20 md:pl-0">
-                          <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
-                            {t("howItWorks.step2Title")}
-                          </h3>
-                          <p className="text-slate-600 leading-relaxed">
-                            {t("howItWorks.step2Desc")}
-                          </p>
-                        </div>
-
-                        {/* Icon Circle */}
-                        <div className="absolute left-0 md:left-1/2 w-16 h-16 bg-white border-4 border-green-500 rounded-full flex items-center justify-center -translate-x-0 md:-translate-x-1/2 shadow-xl shadow-green-500/20 z-20">
-                          <Smartphone className="h-6 w-6 text-green-600" />
-                        </div>
-                        <div className="flex-1 w-full md:w-1/2 md:pr-12 hidden md:block"></div>
-                      </div>
-                    </div>
-
-                    {/* Step 3 */}
-                    <div className="relative z-10">
-                      <div className="flex flex-col md:flex-row items-center">
-                        <div className="flex-1 w-full md:w-1/2 md:pr-12 md:text-right pl-20 md:pl-0">
-                          <h3 className="text-2xl font-bold text-slate-900 mb-2 font-outfit">
-                            {t("howItWorks.step3Title")}
-                          </h3>
-                          <p className="text-slate-600 leading-relaxed">
-                            {t("howItWorks.step3Desc")} <br />
-                            <span className="text-green-600 font-bold bg-green-50 px-2 py-1 rounded-md mt-2 inline-block">
-                              {t("howItWorks.step3Highlight")}
-                            </span>
-                          </p>
-                        </div>
-
-                        {/* Icon Circle */}
-                        <div className="absolute left-0 md:left-1/2 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 border-4 border-white rounded-full flex items-center justify-center -translate-x-0 md:-translate-x-1/2 shadow-xl shadow-blue-900/30 z-20">
-                          <Heart className="h-7 w-7 text-white animate-pulse" />
-                        </div>
-                        <div className="flex-1 w-full md:w-1/2 md:pl-12 hidden md:block"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Get Started Button */}
-                  <div className="text-center mt-12 md:mt-16">
-                    <a
-                      href="https://app.menodao.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setIsHowItWorksOpen(false)}
-                      className="inline-block px-8 py-4 bg-[#22C55E] hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg text-lg"
-                    >
-                      {t("howItWorks.getStarted")}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       )}
     </I18nextProvider>

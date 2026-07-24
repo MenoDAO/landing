@@ -3,11 +3,11 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "MenoDAO",
-    alternateName: ["Meno DAO", "MenoDAO Kenya", "Meno Dental Care"],
+    alternateName: ["MenoDAO Kenya", "Meno Dental Care"],
     url: "https://menodao.org",
     logo: "https://menodao.org/logo.png",
     description:
-      "Kenya's first community-led dental care SACCO providing affordable dental treatment, teeth cleaning, and oral healthcare for low-income families.",
+      "A community-driven healthcare financing platform that helps individuals access affordable dental care by pooling contributions and facilitating transparent payments to verified clinics.",
     foundingDate: "2024",
     areaServed: {
       "@type": "Country",
@@ -107,7 +107,7 @@ export default function StructuredData() {
         name: "What is MenoDAO?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "MenoDAO is Kenya's first community-led dental care SACCO (Savings and Credit Cooperative). We pool resources from members to provide affordable dental care services to low-income families who otherwise couldn't access quality dental treatment.",
+          text: "MenoDAO is a community-driven healthcare financing platform that helps individuals access affordable dental care by pooling contributions and facilitating transparent payments to verified clinics.",
         },
       },
       {

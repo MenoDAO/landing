@@ -18,16 +18,14 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "MenoDAO - Affordable Dental Care for All Kenyans | Dental Sacco",
+  title: "MenoDAO - Affordable Dental Care, Powered by Community | Kenya",
   description:
-    "MenoDAO is Kenya's first community-led dental care SACCO. Get affordable dental treatment, teeth cleaning, dental checkups & emergency care. Quality dental services for low-income families. Join today!",
+    "MenoDAO is a community-driven healthcare financing platform that helps individuals access affordable dental care by pooling contributions and facilitating transparent payments to verified clinics.",
   keywords: [
     // Brand keywords
     "menodao",
     "MenoDAO",
-    "Meno DAO",
     "meno",
-    "dao",
     "dental sacco",
     // Service keywords
     "dental care",
@@ -60,11 +58,7 @@ export const metadata: Metadata = {
     "dental membership Kenya",
     "budget dental care",
     "quality dental care affordable",
-    // Problem/Solution keywords
-    "affordable teeth treatment",
-    "cheap dental services",
-    "dental care low income",
-    "dental sacco Kenya",
+    "healthcare financing Kenya",
     "community health membership",
     "dental savings plan",
     // Swahili keywords for local SEO
@@ -113,9 +107,9 @@ export const metadata: Metadata = {
     locale: "en_KE",
     url: "https://menodao.org",
     siteName: "MenoDAO",
-    title: "MenoDAO - Affordable Dental Care for All Kenyans",
+    title: "MenoDAO - Affordable Dental Care, Powered by Community",
     description:
-      "Join Kenya's first community-led dental care SACCO. Affordable dental treatment, teeth cleaning, checkups & emergency care for low-income families.",
+      "Community-powered dental care platform in Kenya. Pool contributions and make transparent payments to verified clinics via mobile money.",
     images: [
       {
         url: "/logo.png",
@@ -127,9 +121,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MenoDAO - Affordable Dental Care Kenya",
+    title: "MenoDAO - Community-Powered Dental Care Kenya",
     description:
-      "Community-led dental care SACCO. Quality dental services for all income levels.",
+      "Affordable dental care through community contributions. Transparent clinic payments in KES.",
     images: ["/logo.png"],
     creator: "@menodao",
   },

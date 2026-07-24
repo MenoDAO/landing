@@ -54,10 +54,10 @@ export const testimonials = [
 ];
 
 export const heroContent = {
-  headline: "Get Dental Cover for Just 350 Bob/Month",
+  headline: "Affordable Dental Care, Powered by Community",
   subheadline:
-    "Checkups, cleanings & emergency care at trusted clinics in Mombasa & Kwale",
-  ctaText: "Join for KES 350/mo",
+    "MenoDAO helps individuals and families access essential dental treatment by pooling contributions and ensuring transparent, accountable payments to trusted clinics.",
+  ctaText: "Contribute Now",
   ctaSubtext: "Have questions? Chat with us on WhatsApp →",
 };
 

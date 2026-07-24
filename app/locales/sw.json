@@ -2,14 +2,17 @@
   "nav": {
     "about": "Kuhusu",
     "services": "Huduma",
+    "howItWorks": "Jinsi Inavyofanya Kazi",
     "gallery": "Picha",
     "contact": "Wasiliana",
+    "compliance": "Uzingatifu",
     "getStarted": "Anza Sasa"
   },
   "hero": {
-    "headline": "Pata Bima ya Meno kwa Bob 350 tu/Mwezi",
-    "subheadline": "Ukaguzi, usafi na huduma ya dharura katika kliniki zinazoaminika Mombasa & Kwale",
-    "ctaText": "Jiunge kwa KES 350/mwezi",
+    "headline": "Huduma ya Meno Yenye Bei Nafuu, Inayosukumwa na Jamii",
+    "subheadline": "MenoDAO inasaidia watu binafsi na familia kupata matibabu muhimu ya meno kwa kuchanganya michango na kuhakikisha malipo yenye uwazi na uwajibikaji kwa kliniki zinazoaminika.",
+    "ctaText": "Changia Sasa",
+    "ctaSecondary": "Pata Msaada wa Matibabu",
     "servingBadge": "✓ TUNAHUDUMIA MOMBASA & KWALE",
     "partneredClinics": "Tumeshirikiana na kliniki {{count}}+",
     "joinMembers": "Jiunge na wanachama 500+",
@@ -131,34 +134,42 @@
     "zeroWaitTitle": "Hakuna Muda wa Kusubiri",
     "zeroWaitDesc": "Fikia huduma ya dharura na kubwa kuanzia siku ya 1",
     "moneyTitle": "Pesa Yako Iko Salama",
-    "treasuryTitle": "Hazina Salama ya Kidijitali",
-    "treasuryDesc": "Michango yako inafuatiliwa kwa uwazi",
+    "treasuryTitle": "Michango ya Wanachama Inahifadhiwa Salama",
+    "treasuryDesc": "Michango yako inafuatiliwa katika rekodi zetu na inapatikana kwa wanachama",
     "auditedTitle": "Imekaguliwa & Uwazi",
-    "auditedDesc": "Kila shilingi inawajibika na inaweza kuthibitishwa",
+    "auditedDesc": "Kila shilingi inawajibika na inakaguliwa kwa mujibu wa ushirika na ripoti za wanachama",
     "memberOwnedTitle": "Inamilikiwa na Wanachama",
     "voiceTitle": "Una Sauti",
-    "voiceDesc": "Wanachama wanapiga kura kuhusu maamuzi makubwa",
+    "voiceDesc": "Wanachama husaidia kuweka vipaumbele kupitia michakato ya ushirika",
     "noFeesTitle": "Hakuna Ada Zilizofichwa",
     "noFeesDesc": "Gharama zote ni wazi na zimekubaliana",
     "trustTitle": "Imejengwa kwa Uaminifu, Inasukumwa na Jamii",
-    "trustDesc": "Kila sheria ipo kulinda wanachama na kuhakikisha usawa. Tunaamini katika uwazi kamili kwa sababu uaminifu wako ni msingi wetu."
+    "trustDesc": "Kila mchango na malipo yanarekodiwa na kufuatiliwa ili kuhakikisha uwajibikaji kamili. Mfumo wetu unatoa uwazi wazi kuhusu jinsi fedha zinavyotumika."
   },
   "technology": {
-    "badge": "TEKNOLOJIA YA UWAZI",
+    "badge": "UWAZI",
     "title": "Data Yako. Pesa Yako. Salama.",
-    "ledgerTitle": "Daftari la Uwazi",
-    "ledgerDesc": "Kila shilingi iliyochangiwa inawajibika kwa kutumia teknolojia salama ya kidijitali.",
+    "ledgerTitle": "Uwajibikaji Kamili",
+    "ledgerDesc": "Kila mchango na malipo yanarekodiwa na kufuatiliwa ili kuhakikisha uwajibikaji kamili. Mfumo wetu unatoa uwazi wazi kuhusu jinsi fedha zinavyotumika.",
     "privacyTitle": "Faragha ya Data",
     "privacyDesc": "Rekodi zako za matibabu zinabaki za siri kati yako na daktari.",
     "paymentsTitle": "Malipo Rahisi",
-    "paymentsDesc": "Muunganiko laini na M-Pesa.",
-    "balanceLabel": "Salio la MenoDAO",
+    "paymentsDesc": "Muunganiko laini na M-Pesa na watoa huduma wa pesa za simu walioidhinishwa.",
+    "balanceLabel": "Salio la Michango",
     "activeMember": "Mwanachama Anayetumia"
+  },
+  "paymentsCompliance": {
+    "badge": "Malipo & Uzingatifu",
+    "title": "Malipo & Uzingatifu",
+    "body1": "Malipo yote kwenye MenoDAO yanashughulikiwa kwa Shilingi za Kenya (KES) kupitia watoa huduma wa pesa za simu walioidhinishwa.",
+    "body2": "MenoDAO haishughulikii, haitumii, wala haiwezeshi miamala ya sarafu-fiche au mali dijitali.",
+    "body3": "Tumejitolea kufanya kazi kwa uzingatifu kamili wa kanuni za kifedha zinazotumika nchini Kenya.",
+    "readMore": "Soma taarifa kamili ya uzingatifu"
   },
   "about": {
     "badge": "Kuhusu Sisi",
     "title": "Kujenga Jamii Zenye Afya, Tabasamu Moja kwa Wakati",
-    "desc1": "MenoDAO ni ushirika wa meno unaoongozwa na jamii ambao unabadilisha jinsi watu wanavyopata na kulipa huduma ya meno Kenya. Tunaamini kila mtu anastahili afya bora ya meno bila mzigo wa kifedha.",
+    "desc1": "MenoDAO ni jukwaa la ufadhili wa afya linalosukumwa na jamii linalosaidia watu kupata huduma ya meno yenye bei nafuu kwa kuchanganya michango na kuwezesha malipo yenye uwazi kwa kliniki zilizothibitishwa.",
     "desc2": "Ulianzishwa kwa kanuni za uwazi, uwezo wa kumudu, na umiliki wa jamii, tunachanganya rasilimali ili kufanya huduma ya kuzuia na ya msingi ya meno ipatikane kwa wanachama wote.",
     "founded": "Ilianzishwa",
     "communityOwned": "Inamilikiwa na Jamii",
@@ -232,25 +243,34 @@
     "emailInquiries": "Maswali ya jumla"
   },
   "footer": {
-    "tagline": "Huduma ya meno inayoongozwa na jamii kwa Kenya.",
+    "tagline": "Jukwaa la huduma ya meno linalosukumwa na jamii nchini Kenya.",
     "launchApp": "Fungua Programu",
     "registeredCooperative": "Ushirika Uliosajiliwa",
     "officeLocation": "Mahali pa Ofisi",
     "contactUs": "Wasiliana Nasi",
-    "copyright": "© 2025 MenoDAO Cooperative. Haki zote zimehifadhiwa."
+    "compliance": "Uzingatifu",
+    "copyright": "© 2025 MenoDAO. Haki zote zimehifadhiwa."
   },
   "howItWorks": {
-    "badge": "Mchakato Rahisi",
-    "title": "Safari Yako Kwenda",
-    "titleHighlight": "Afya Bila Wasiwasi",
-    "subtitle": "Tuliondoa karatasi, foleni za kusubiri, na msongo. Hapa ndivyo unavyojiunga na familia.",
-    "step1Title": "1. Jiandikishe kwenye Programu",
-    "step1Desc": "Tembelea app.menodao.org na ujiandikishe na nambari yako ya simu. Chagua kifurushi chako cha uanachama unachopenda (Shaba, Fedha, au Dhahabu).",
-    "step2Title": "2. Fanya Malipo Yako",
-    "step2Desc": "Kamilisha usajili wako kwa kulipa mchango wako wa kila mwezi kupitia M-Pesa. Akaunti yako inawashwa mara moja malipo yakithibitishwa.",
-    "step3Title": "3. Pata Huduma Bora",
-    "step3Desc": "Tembelea kliniki yoyote mshirika. Onyesha kadi yako ya uanachama wa kidijitali. Pata matibabu kulingana na faida za kifurushi chako.",
-    "step3Highlight": "Hakuna bili za mshangao. Huduma tu.",
-    "getStarted": "Anza Sasa"
+    "badge": "Jinsi Inavyofanya Kazi",
+    "title": "Jinsi",
+    "titleHighlight": "MenoDAO Inavyofanya Kazi",
+    "subtitle": "Njia rahisi kutoka kwa mchango hadi huduma ya meno katika kliniki zinazoaminika.",
+    "step1Title": "1. Changia",
+    "step1Desc": "Wanachama hufanya michango kwa kutumia chaguo salama za malipo ya simu.",
+    "step2Title": "2. Pata Msaada",
+    "step2Desc": "Fedha zinagawiwa kwa matibabu ya meno yaliyoidhinishwa kulingana na mahitaji yaliyothibitishwa.",
+    "step3Title": "3. Malipo Yenye Uwazi",
+    "step3Desc": "Malipo hufanywa moja kwa moja kwa kliniki washirika na uwazi kamili kwa wachangiaji.",
+    "step3Highlight": "Malipo yenye uwajibikaji. Huduma halisi.",
+    "getStarted": "Changia Sasa"
+  },
+  "compliance": {
+    "title": "Uzingatifu",
+    "intro": "MenoDAO inafanya kazi kama jukwaa la msaada wa afya linalowezesha michango na malipo kwa huduma za meno.",
+    "kes": "Miamala yote inafanywa kwa Shilingi za Kenya (KES) kupitia watoa huduma wa pesa za simu walioidhinishwa.",
+    "noCrypto": "MenoDAO haihusiki, haitumii, wala haiwezeshi miamala ya sarafu-fiche au mali dijitali.",
+    "commitment": "Tumejitolea kudumisha uzingatifu wa mahitaji yote ya kifedha na udhibiti yanayotumika nchini Kenya.",
+    "backHome": "Rudi nyumbani"
   }
 }
