@@ -98,9 +98,7 @@ export const metadata: Metadata = {
     maximumScale: 5,
   },
   verification: {
-    // Add your verification codes when available
     // google: 'your-google-verification-code',
-    // yandex: 'your-yandex-verification-code',
   },
   openGraph: {
     type: "website",
@@ -133,6 +131,7 @@ export const metadata: Metadata = {
   category: "Healthcare",
   classification: "Dental Care Services",
   other: {
+    "facebook-domain-verification": "xgnz9g7a990fz6ru0dtb1gv0dnre2m",
     "geo.region": "KE",
     "geo.placename": "Kenya",
     "og:locale:alternate": "sw_KE",
